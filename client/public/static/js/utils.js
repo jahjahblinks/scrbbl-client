@@ -3,7 +3,7 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
     //var socket = io('https://polar-mesa-13022.herokuapp.com/', { withCredentials: false  });
 
 
-    var sockets = io('https://fathomless-river-82221.herokuapp.com/', { withCredentials: false  });//,transports: ["websocket"]
+    var sockets = io('https://scrbbl-server.herokuapp.com/', { withCredentials: false  });//,transports: ["websocket"]
     var prevPos= { x: null, y: null };
 
     this.errorOutput = document.getElementById(errorOutputId);

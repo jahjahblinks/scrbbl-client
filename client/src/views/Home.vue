@@ -6,7 +6,7 @@
           <div class="column is-6 is-offset-3">
             <h2 class="title is-1">🐻✏️</h2>
             <h3 class="subtitle is-2 doodle">
-              Welcome to <a href="./">bruindoodle.io</a>!
+              Welcome to <a href="./">scrbbl @ UCLA</a>!
             </h3>
           </div>
         </div>
@@ -17,13 +17,10 @@
       <div class="hero is-light">
         <div class="hero-body">
           <div class="content">
-            <h4 class="title is-3 ">How to Play 📃</h4>
-            <p>Every round has a time limit of at most 180 seconds. ⏰</p>
-            <p>You need at least ✌️ players to start a game.</p>
-            <p>👨‍🎨 Channel your inner Bob Ross to draw the selected word.</p>
-            <p>🙋‍♀️ Use that big 🧠 of yours to guess the word.</p>
-            <p>Activate power-ups to help 👼 you gain points or mess 😈 with other players.</p>
-            <h5 class="title is-5">Have fun! 😎</h5>
+            <h4 class="title is-3 ">How to Play!</h4>
+            <p>The maxiumum time limit per round is 180 seconds.</p>
+            <p>At least 2 players are needed to start a game.</p>
+            <h5 class="title is-5">Enjoy! 😎</h5>
           </div>
         </div>
       </div>

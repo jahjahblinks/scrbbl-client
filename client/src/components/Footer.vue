@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content">
         <p>
-          Made with 💙 at
+          Developed by Team 6 at
           <a href="https://www.youtube.com/watch?v=jWsx2iqO1ks&ab_channel=Grandayy">UCLA</a>.
         </p>
       </div>
