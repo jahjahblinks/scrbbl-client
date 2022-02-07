@@ -3,15 +3,9 @@
   "short_name": "BruinDoodle.io",
   "icons": [
     {
-<<<<<<< HEAD
-      "src": "./static/favicon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-=======
       "src": "./img/icons/favicon.ico",
       "sizes": "192x192",
       "type": "image/x-icon"
->>>>>>> master
     }
   ],
   "start_url": "./index.html",
