@@ -28,7 +28,7 @@ script: [
       <div class="column is-3">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title"> 🏆 <span v-if="room && wordHint"> &nbsp; Round {{numRounds}} of {{maxRounds}}</span></p>
+            <p class="card-header-title"> Leaderboard 🏆 <span v-if="room && wordHint"> &nbsp; Round {{numRounds}} of {{maxRounds}}</span></p>
           </header>
           <div class="card-content">
             <ul class="content playerlist" v-if="showUsers">
@@ -142,7 +142,7 @@ script: [
       <div class="column is-3" id="chat">
         <div class="card chat">
           <header class="card-header">
-            <p class="card-header-title">💬</p>
+            <p class="card-header-title">Chat 💬</p>
           </header>
           <div class="chat-body" ref="chat">
             <ul class="chat-messages">
