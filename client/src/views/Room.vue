@@ -55,7 +55,7 @@ script: [
           </footer>
         </div>
 
-        <div class="card card--painter">
+        <!-- <div class="card card--painter">
           <header class="card-header">
             <p class="card-header-title">⚡</p>
           </header>
@@ -77,7 +77,7 @@ script: [
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
         <div
           class="card card--painter"
@@ -119,7 +119,7 @@ script: [
           </div>
         </div>
 
-        <div class="card card--painter">
+        <!-- <div class="card card--painter">
           <header class="card-header card-video">
             <p id="headerVideo" class="card-header-title">📷</p>
             <div class="control control-video">
@@ -134,7 +134,7 @@ script: [
           <div class="card-content content-video">
             <video id="videoInput" width=320 height=240 hidden></video>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <whiteboard id="whiteboardID" :iDraw="iDraw" :started="roundStarted"/>
@@ -194,7 +194,7 @@ script: [
         </div>
 
 
-        <div class="card card--painter">
+        <!-- <div class="card card--painter">
           <header class="card-header card-audio">
             <p id="headerAudio" class="card-header-title">🔈</p>
             <div class="control control-video">
@@ -206,7 +206,7 @@ script: [
               </button>
             </div>
           </header>
-        </div>
+        </div> -->
       </div>
 
       <div class="column is-full">
@@ -427,7 +427,7 @@ export default {
     receive_hint(wordHint) {
       this.wordHint = wordHint;
     },
-    get_powerups(points) {
+    /* get_powerups(points) {
       var power_list = ['Extend Time ⏳','Reveal Hint to Guessers 👁️','Double Points ✌️','Reveal Hint 👁️','Remove Hints ❌','Extra 💯 Points'];
       var guesser = [];
       var artist = [];
@@ -448,7 +448,7 @@ export default {
       this.artistUps = artist;
 
       this.guesserUps = guesser;
-    },
+    }, */
   },
   computed: {
     sortedUsers() {
@@ -511,7 +511,7 @@ export default {
         }
       });
 
-      function onVideoStarted() {
+/*       function onVideoStarted() {
         utils.nameStuff(document.getElementById('fname').value);
         streaming = true;
         startAndStop.innerText = 'Stop';
@@ -521,9 +521,9 @@ export default {
         videoInput.height = videoInput.videoHeight;
         videoInput.hidden = false;
         utils.executeCode('codeEditor', streaming);
-      }
+      } */
 
-      function onVideoStopped() {
+/*       function onVideoStopped() {
         streaming = false;
         canvasContext.clearRect(0, 0, canvasOutput.width, canvasOutput.height);
         sockContext.clearRect(0, 0, sockOutput.width, sockOutput.height);
@@ -531,7 +531,7 @@ export default {
         startAndStop.className = 'button is-primary is-borderless';
         headerVideo.innerText = '📷';
         videoInput.hidden = true;
-      }
+      } */
 
      
     })
