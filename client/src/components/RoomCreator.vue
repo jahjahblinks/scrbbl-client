@@ -57,7 +57,7 @@
           Minimum number of players is 2.
         </p>
         <p class="help is-danger" v-if="errors['max_players']">
-          Minimum number of players is 50.
+          Maximum number of players is 50.
         </p>
       </div>
 

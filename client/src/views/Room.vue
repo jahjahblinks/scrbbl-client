@@ -194,7 +194,7 @@ script: [
         </div>
 
 
-        <!-- <div class="card card--painter">
+        <div class="card card--painter">
           <header class="card-header card-audio">
             <p id="headerAudio" class="card-header-title">🔈</p>
             <div class="control control-video">
@@ -206,7 +206,7 @@ script: [
               </button>
             </div>
           </header>
-        </div> -->
+        </div>
       </div>
 
       <div class="column is-full">
