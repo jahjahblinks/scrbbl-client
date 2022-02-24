@@ -82,7 +82,7 @@ export default {
         CTX.moveTo(coords.prevPos.x, coords.prevPos.y);
         CTX.lineTo(coords.currPos.x, coords.currPos.y);
         CTX.closePath();
-        context.lineWidth = 20;
+        CTX.lineWidth = 20;
         CTX.stroke();
       }
     },
