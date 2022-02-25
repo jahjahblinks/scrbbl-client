@@ -62,6 +62,7 @@ export default {
       prevPos: { x: null, y: null },
       ctx: null,
       draw: false,
+      size: 5, //default value for drawing line size
     };
   },
   props: ["iDraw", "started"],
@@ -73,6 +74,18 @@ export default {
     clearBoard() {
       this.$socket.emit("clear");
     },
+    increaseLineSize() //Increase drawing line size by 5
+    {
+      newLineSize = this.size + 5;
+      if(newLineSize < 55)
+        this.size = newLineSize;
+    },
+    decreaseLineSize() //Decrease drawing line size by 5
+    {
+      newLineSize = this.size - 5;
+      if(newLineSize > 0)
+        this.size = newLineSize;
+    },
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
@@ -82,7 +95,7 @@ export default {
         CTX.moveTo(coords.prevPos.x, coords.prevPos.y);
         CTX.lineTo(coords.currPos.x, coords.currPos.y);
         CTX.closePath();
-        CTX.lineWidth = 20;
+        CTX.lineWidth = size; //Dynamic line size
         CTX.stroke();
       }
     },
@@ -140,12 +153,16 @@ export default {
       window.addEventListener("touchstart", this.enableDrawing);
       window.addEventListener("mouseup", this.disableDrawing);
       window.addEventListener("touchend", this.disableDrawing);
+      window.addEventListener("sizeup", this.increaseLineSize);
+      window.addEventListener("sizedown", this.decreaseLineSize);
     },
     removeEvents() {
       window.removeEventListener("mousedown", this.enableDrawing);
       window.removeEventListener("touchstart", this.enableDrawing);
       window.removeEventListener("mouseup", this.disableDrawing);
       window.removeEventListener("touchend", this.disableDrawing);
+      window.addEventListener("sizeup", this.increaseLineSize);
+      window.addEventListener("sizedown", this.decreaseLineSize);
     },
   },
   watch: {

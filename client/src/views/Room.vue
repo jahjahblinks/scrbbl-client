@@ -256,6 +256,7 @@ export default {
       wordHint: "",
       guesserUps: [],
       artistUps: [],
+      size: 5,
     };
   },
   components: { Whiteboard },
