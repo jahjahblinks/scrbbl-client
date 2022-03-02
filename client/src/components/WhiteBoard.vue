@@ -62,6 +62,7 @@ export default {
       prevPos: { x: null, y: null },
       ctx: null,
       draw: false,
+      size: null, //default value for drawing line size
     };
   },
   props: ["iDraw", "started"],
@@ -69,13 +70,30 @@ export default {
     initBoard() {
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
+      this.size = 5;
     },
     clearBoard() {
       this.$socket.emit("clear");
     },
+    increaseLineSize() //Increase drawing line size by 5
+    {
+      newLineSize = this.size + 5;
+      if(newLineSize < 55)
+        this.size = newLineSize;
+        this.ctx.lineWidth(this.size);
+    },
+    decreaseLineSize() //Decrease drawing line size by 5
+    {
+      newLineSize = this.size - 5;
+      if(newLineSize > 0)
+        this.size = newLineSize;
+        this.ctx.lineWidth(this.size);
+    },
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
+      //var lineWidth = this.size;
+      //CTX.lineWidth = lineWidth; //Dynamic line size
       if (coords) {
         CTX.strokeStyle = color;
         CTX.beginPath();
@@ -157,6 +175,12 @@ export default {
     },
   },
   sockets: {
+    increase_pen_size() {
+      this.increaseLineSize();
+    },
+    decrease_pen_size() {
+      this.decreaseLineSize();
+    },
     paint(coords) {
       if (coords) {
         this.drawLine(coords);
