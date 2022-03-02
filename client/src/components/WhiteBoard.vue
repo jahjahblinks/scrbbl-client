@@ -70,7 +70,7 @@ export default {
     initBoard() {
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
-      this.size = 5;
+      this.size = 10;
     },
     clearBoard() {
       this.$socket.emit("clear");
@@ -80,20 +80,20 @@ export default {
       newLineSize = this.size + 5;
       if(newLineSize < 55)
         this.size = newLineSize;
-        this.ctx.lineWidth(this.size);
+        //this.ctx.lineWidth(this.size);
     },
     decreaseLineSize() //Decrease drawing line size by 5
     {
       newLineSize = this.size - 5;
       if(newLineSize > 0)
         this.size = newLineSize;
-        this.ctx.lineWidth(this.size);
+        //this.ctx.lineWidth(this.size);
     },
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
-      //var lineWidth = this.size;
-      //CTX.lineWidth = lineWidth; //Dynamic line size
+      var lineWidth = this.size;
+      CTX.lineWidth = lineWidth; //Dynamic line size
       if (coords) {
         CTX.strokeStyle = color;
         CTX.beginPath();
