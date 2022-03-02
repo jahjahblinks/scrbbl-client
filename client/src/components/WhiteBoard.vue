@@ -176,10 +176,14 @@ export default {
   },
   sockets: {
     increase_pen_size() {
-      this.increaseLineSize();
+      newLineSize = this.size + 5;
+      if(newLineSize < 55)
+        this.size = newLineSize;
     },
     decrease_pen_size() {
-      this.decreaseLineSize();
+      newLineSize = this.size - 5;
+      if(newLineSize > 0)
+        this.size = newLineSize;
     },
     paint(coords) {
       if (coords) {
