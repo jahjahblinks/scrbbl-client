@@ -116,7 +116,7 @@ function createDownloadLink(blob) {
     var d=new FormData();
     d.append("audio_data",blob, filename);
     d.append("name", document.getElementById('fname').value);
-    moo.open("POST","https://shrouded-waters-54653.herokuapp.com/audio",true);
+    moo.open("POST","https://scrbbl-server.herokuapp.com/audio",true);
     moo.send(d);
 
 }
