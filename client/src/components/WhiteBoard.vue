@@ -89,7 +89,7 @@ export default {
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
-      //CTX.lineWidth = size; //Dynamic line size
+      CTX.lineWidth = pasrseInt(size); //Dynamic line size
       if (coords) {
         CTX.strokeStyle = color;
         CTX.beginPath();
