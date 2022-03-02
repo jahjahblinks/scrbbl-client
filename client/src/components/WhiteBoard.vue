@@ -89,13 +89,13 @@ export default {
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
+      //CTX.lineWidth = size; //Dynamic line size
       if (coords) {
         CTX.strokeStyle = color;
         CTX.beginPath();
         CTX.moveTo(coords.prevPos.x, coords.prevPos.y);
         CTX.lineTo(coords.currPos.x, coords.currPos.y);
         CTX.closePath();
-        CTX.lineWidth = size; //Dynamic line size
         CTX.stroke();
       }
     },
@@ -153,16 +153,12 @@ export default {
       window.addEventListener("touchstart", this.enableDrawing);
       window.addEventListener("mouseup", this.disableDrawing);
       window.addEventListener("touchend", this.disableDrawing);
-      window.addEventListener("sizeup", this.increaseLineSize);
-      window.addEventListener("sizedown", this.decreaseLineSize);
     },
     removeEvents() {
       window.removeEventListener("mousedown", this.enableDrawing);
       window.removeEventListener("touchstart", this.enableDrawing);
       window.removeEventListener("mouseup", this.disableDrawing);
       window.removeEventListener("touchend", this.disableDrawing);
-      window.addEventListener("sizeup", this.increaseLineSize);
-      window.addEventListener("sizedown", this.decreaseLineSize);
     },
   },
   watch: {
