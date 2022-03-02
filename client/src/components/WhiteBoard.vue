@@ -175,6 +175,12 @@ export default {
     },
   },
   sockets: {
+    increase_pen_size() {
+      this.increaseLineSize();
+    },
+    decrease_pen_size() {
+      this.decreaseLineSize();
+    },
     paint(coords) {
       if (coords) {
         this.drawLine(coords);

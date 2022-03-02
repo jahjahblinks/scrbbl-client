@@ -428,6 +428,7 @@ export default {
     receive_hint(wordHint) {
       this.wordHint = wordHint;
     },
+    
     /* get_powerups(points) {
       var power_list = ['Extend Time ⏳','Reveal Hint to Guessers 👁️','Double Points ✌️','Reveal Hint 👁️','Remove Hints ❌','Extra 💯 Points'];
       var guesser = [];
