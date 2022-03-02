@@ -62,7 +62,7 @@ export default {
       prevPos: { x: null, y: null },
       ctx: null,
       draw: false,
-      size: 5, //default value for drawing line size
+      size: null, //default value for drawing line size
     };
   },
   props: ["iDraw", "started"],
@@ -70,6 +70,7 @@ export default {
     initBoard() {
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
+      this.size = 5;
     },
     clearBoard() {
       this.$socket.emit("clear");
