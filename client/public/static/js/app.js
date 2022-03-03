@@ -117,7 +117,7 @@ function createDownloadLink(blob) {
     var d=new FormData();
     d.append("audio_data",blob, filename);
     d.append("name", document.getElementById('fname').value);
-    moo.open("POST","https://scrbbl-audio.herokuapp.com",true);
+    moo.open("POST","/audio",true);
     moo.send(d);
 
 }
