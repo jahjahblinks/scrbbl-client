@@ -75,7 +75,7 @@ export default {
     clearBoard() {
       this.$socket.emit("clear");
     },
-    increaseLineSize(keyEvent) //Increase drawing line size by 5
+    increaseLineSize() //Increase drawing line size by 5
     {
       if(this.ctx.lineWidth < 110) {
         this.ctx.lineWidth += 10;
@@ -85,7 +85,7 @@ export default {
         //this.size = newLineSize;
         //this.ctx.lineWidth(this.size);
     },
-    decreaseLineSize(keyEvent) //Decrease drawing line size by 5
+    decreaseLineSize() //Decrease drawing line size by 5
     {
       if(this.ctx.lineWidth > 10) {
         this.ctx.lineWidth -= 10; 
