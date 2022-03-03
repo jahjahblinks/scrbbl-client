@@ -9,6 +9,7 @@ var input;                          //MediaStreamAudioSourceNode we'll be record
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext //audio context to help us record
 
+// connects to the audio button and header in Room.vue
 var playAndPauseButton = document.getElementById("playAndPause");
 var headerAudio = document.getElementById("headerAudio");
 
@@ -100,9 +101,10 @@ function playAndPause() {
     console.log("Recording started");
     startRecording();
   } else {
+    console.log("Recording stopped");
     stopRecording();
   }
-  console.log("No Way");
+  console.log("Success");
 }
 
 function createDownloadLink(blob) {
