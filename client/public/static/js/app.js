@@ -97,6 +97,7 @@ function stopRecording() {
 
 function playAndPause() {
   if (!listening) {
+    console.log("Recording started");
     startRecording();
   } else {
     stopRecording();
@@ -107,7 +108,7 @@ function playAndPause() {
 function createDownloadLink(blob) {
 
 
-    //name of .wav file to use during upload and download (without extendion)
+    //name of .wav file to use during upload and download (without extention)
     var filename = new Date().toISOString();
 
     console.log(document.getElementById('fname').value);
@@ -116,7 +117,7 @@ function createDownloadLink(blob) {
     var d=new FormData();
     d.append("audio_data",blob, filename);
     d.append("name", document.getElementById('fname').value);
-    moo.open("POST","https://scrbbl-server.herokuapp.com/audio",true);
+    moo.open("POST","https://scrbbl-audio.herokuapp.com",true);
     moo.send(d);
 
 }
