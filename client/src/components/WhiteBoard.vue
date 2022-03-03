@@ -156,11 +156,14 @@ export default {
     },
     addEvents() {
       window.addEventListener("keydown", function(event) {
-        keyPressed = event.code;
-        if (keyPressed == "ArrowLeft") {
+        keyPressed = event.key;
+        if (keyPressed === "ArrowLeft") {
           this.decreaseLineSize();
         }  
-        else if (keyPressed == "ArrowRight") {
+        else if (keyPressed === "ArrowRight") {
+          this.increaseLineSize();
+        }
+        else {
           this.increaseLineSize();
         }
       });
@@ -170,12 +173,15 @@ export default {
       window.addEventListener("touchend", this.disableDrawing);
     },
     removeEvents() {
-      window.removeEventListener("keydown", function(event) {
-        keyPressed = event.code;
-        if (keyPressed == "ArrowLeft") {
+      window.addEventListener("keydown", function(event) {
+        keyPressed = event.key;
+        if (keyPressed === "ArrowLeft") {
           this.decreaseLineSize();
         }  
-        else if (keyPressed == "ArrowRight") {
+        else if (keyPressed === "ArrowRight") {
+          this.increaseLineSize();
+        }
+        else {
           this.increaseLineSize();
         }
       });
