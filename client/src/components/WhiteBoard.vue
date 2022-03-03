@@ -153,12 +153,14 @@ export default {
       };
     },
     addEvents() {
+      window.addEventListener("keydown", this.increaseLineSize);
       window.addEventListener("mousedown", this.enableDrawing);
       window.addEventListener("touchstart", this.enableDrawing);
       window.addEventListener("mouseup", this.disableDrawing);
       window.addEventListener("touchend", this.disableDrawing);
     },
     removeEvents() {
+      window.removeEventListener("keydown", this.increaseLineSize);
       window.removeEventListener("mousedown", this.enableDrawing);
       window.removeEventListener("touchstart", this.enableDrawing);
       window.removeEventListener("mouseup", this.disableDrawing);
