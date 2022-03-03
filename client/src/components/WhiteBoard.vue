@@ -164,7 +164,7 @@ export default {
           this.increaseLineSize();
         }
         else {
-          this.increaseLineSize();
+          this.ctx.lineWidth += 10;
         }
       });
       window.addEventListener("mousedown", this.enableDrawing);
@@ -182,7 +182,7 @@ export default {
           this.increaseLineSize();
         }
         else {
-          this.increaseLineSize();
+          this.ctx.lineWidth += 10;
         }
       });
       window.removeEventListener("mousedown", this.enableDrawing);
