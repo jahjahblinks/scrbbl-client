@@ -77,9 +77,7 @@ export default {
     },
     increaseLineSize() //Increase drawing line size by 5
     {
-      if(this.ctx.lineWidth < 110) {
-        this.ctx.lineWidth += 10;
-      }
+      this.ctx.lineWidth += 10;
       //newLineSize = this.size + 5;
       //if(newLineSize < 55)
         //this.size = newLineSize;
@@ -87,9 +85,7 @@ export default {
     },
     decreaseLineSize() //Decrease drawing line size by 5
     {
-      if(this.ctx.lineWidth > 10) {
-        this.ctx.lineWidth -= 10; 
-      }
+      this.ctx.lineWidth -= 10; 
       //newLineSize = this.size - 5;
       //if(newLineSize > 0)
         //this.size = newLineSize;
@@ -160,16 +156,12 @@ export default {
     },
     addEvents() {
       window.addEventListener("keydown", function(event) {
-        keyPressed = event.key;
-        switch(keyPressed) {
-          case "ArrowLeft":
-            this.decreaseLineSize
-            break;
-          case "ArrowRight":
-            this.increaseLineSize
-            break;
-          default:
-            break;
+        keyPressed = event.code;
+        if (keyPressed == "ArrowLeft") {
+          this.decreaseLineSize();
+        }  
+        else if (keyPressed == "ArrowRight") {
+          this.increaseLineSize();
         }
       });
       window.addEventListener("mousedown", this.enableDrawing);
@@ -178,17 +170,13 @@ export default {
       window.addEventListener("touchend", this.disableDrawing);
     },
     removeEvents() {
-      window.addEventListener("keydown", function(event) {
-        keyPressed = event.key;
-        switch(keyPressed) {
-          case "ArrowLeft":
-            this.decreaseLineSize
-            break;
-          case "ArrowRight":
-            this.increaseLineSize
-            break;
-          default:
-            break;
+      window.removeEventListener("keydown", function(event) {
+        keyPressed = event.code;
+        if (keyPressed == "ArrowLeft") {
+          this.decreaseLineSize();
+        }  
+        else if (keyPressed == "ArrowRight") {
+          this.increaseLineSize();
         }
       });
       window.removeEventListener("mousedown", this.enableDrawing);
