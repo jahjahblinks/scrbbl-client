@@ -158,10 +158,10 @@ export default {
       window.addEventListener("keydown", function(event) {
         keyPressed = event.key;
         if (keyPressed === "ArrowLeft") {
-          this.decreaseLineSize();
+          this.decreaseLineSize;
         }  
         else if (keyPressed === "ArrowRight") {
-          this.increaseLineSize();
+          this.increaseLineSize;
         }
         else {
           this.ctx.lineWidth += 10;
