@@ -77,9 +77,10 @@ export default {
     },
     increaseLineSize() //Increase drawing line size by 5
     {
-      newLineSize = this.size + 5;
-      if(newLineSize < 55)
-        this.size = newLineSize;
+      CTX.lineWidth += 10;
+      //newLineSize = this.size + 5;
+      //if(newLineSize < 55)
+        //this.size = newLineSize;
         //this.ctx.lineWidth(this.size);
     },
     decreaseLineSize() //Decrease drawing line size by 5
@@ -92,8 +93,8 @@ export default {
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
-      var lineWidth = this.size;
-      CTX.lineWidth = lineWidth; //Dynamic line size
+      //var lineWidth = this.size;
+      //CTX.lineWidth = lineWidth; //Dynamic line size
       if (coords) {
         CTX.strokeStyle = color;
         CTX.beginPath();
