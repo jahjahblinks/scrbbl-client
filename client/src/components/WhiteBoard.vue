@@ -155,36 +155,14 @@ export default {
       };
     },
     addEvents() {
-      window.addEventListener("keydown", function(event) {
-        keyPressed = event.key;
-        if (keyPressed === "ArrowLeft") {
-          this.decreaseLineSize;
-        }  
-        else if (keyPressed === "ArrowRight") {
-          this.increaseLineSize;
-        }
-        else {
-          this.ctx.lineWidth += 10;
-        }
-      });
+      window.addEventListener("keydown", this.increaseLineSize);
       window.addEventListener("mousedown", this.enableDrawing);
       window.addEventListener("touchstart", this.enableDrawing);
       window.addEventListener("mouseup", this.disableDrawing);
       window.addEventListener("touchend", this.disableDrawing);
     },
     removeEvents() {
-      window.addEventListener("keydown", function(event) {
-        keyPressed = event.key;
-        if (keyPressed === "ArrowLeft") {
-          this.decreaseLineSize();
-        }  
-        else if (keyPressed === "ArrowRight") {
-          this.increaseLineSize();
-        }
-        else {
-          this.ctx.lineWidth += 10;
-        }
-      });
+      window.addEventListener("keydown", this.increaseLineSize);
       window.removeEventListener("mousedown", this.enableDrawing);
       window.removeEventListener("touchstart", this.enableDrawing);
       window.removeEventListener("mouseup", this.disableDrawing);
