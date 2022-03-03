@@ -18,6 +18,39 @@ playAndPauseButton.addEventListener("click", playAndPause);
 
 var listening = false;
 
+function runSpeechRecognition() {
+    // get output div reference
+//     var output = document.getElementById("output"); //headerAudio
+    // get action element reference
+//     var action = document.getElementById("action"); //playAndPauseButton
+    // new speech recognition object
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+
+    // This runs when the speech recognition service starts
+    recognition.onstart = function() {
+        headerAudio.innerHTML = "<small>listening, please speak...</small>";
+    };
+
+    recognition.onspeechend = function() {
+        headerAudio.innerHTML = "<small>stopped listening, hope you are done...</small>";
+        recognition.stop();
+    }
+
+    // This runs when the speech recognition service returns result
+    recognition.onresult = function(event) {
+        //transcript stored here
+        var transcript = event.results[0][0].transcript;
+        var confidence = event.results[0][0].confidence;
+        //output confidence
+        //output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
+        //output.classList.remove("hide");
+    };
+
+     // start recognition
+     recognition.start(); 
+}
+
 function startRecording() {
     console.log("recordButton clicked");
     listening = true;
