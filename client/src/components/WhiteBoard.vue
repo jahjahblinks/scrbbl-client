@@ -178,7 +178,19 @@ export default {
       window.addEventListener("touchend", this.disableDrawing);
     },
     removeEvents() {
-      window.removeEventListener("keydown", this.increaseLineSize);
+      window.addEventListener("keydown", function(event) {
+        keyPressed = event.key;
+        switch(keyPressed) {
+          case "ArrowLeft":
+            this.decreaseLineSize
+            break;
+          case "ArrowRight":
+            this.increaseLineSize
+            break;
+          default:
+            break;
+        }
+      });
       window.removeEventListener("mousedown", this.enableDrawing);
       window.removeEventListener("touchstart", this.enableDrawing);
       window.removeEventListener("mouseup", this.disableDrawing);
