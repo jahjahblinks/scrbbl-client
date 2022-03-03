@@ -75,19 +75,24 @@ export default {
     clearBoard() {
       this.$socket.emit("clear");
     },
-    increaseLineSize() //Increase drawing line size by 5
+    increaseLineSize(keyEvent) //Increase drawing line size by 5
     {
-      this.ctx.lineWidth += 10;
+      if(this.ctx.lineWidth < 110) {
+        this.ctx.lineWidth += 10;
+      }
       //newLineSize = this.size + 5;
       //if(newLineSize < 55)
         //this.size = newLineSize;
         //this.ctx.lineWidth(this.size);
     },
-    decreaseLineSize() //Decrease drawing line size by 5
+    decreaseLineSize(keyEvent) //Decrease drawing line size by 5
     {
-      newLineSize = this.size - 5;
-      if(newLineSize > 0)
-        this.size = newLineSize;
+      if(this.ctx.lineWidth > 10) {
+        this.ctx.lineWidth -= 10; 
+      }
+      //newLineSize = this.size - 5;
+      //if(newLineSize > 0)
+        //this.size = newLineSize;
         //this.ctx.lineWidth(this.size);
     },
     drawLine(line) {
@@ -154,7 +159,19 @@ export default {
       };
     },
     addEvents() {
-      window.addEventListener("keydown", this.increaseLineSize);
+      window.addEventListener("keydown", function(event) {
+        keyPressed = event.key;
+        switch(keyPressed) {
+          case "ArrowLeft":
+            this.decreaseLineSize
+            break;
+          case "ArrowRight":
+            this.increaseLineSize
+            break;
+          default:
+            break;
+        }
+      });
       window.addEventListener("mousedown", this.enableDrawing);
       window.addEventListener("touchstart", this.enableDrawing);
       window.addEventListener("mouseup", this.disableDrawing);
