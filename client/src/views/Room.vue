@@ -181,7 +181,7 @@ script: [
                   class="input is-borderless"
                   type="text"
                   value="seven"
-                  placeholder="Send a message..."
+                  placeholder="Send"
                 />
               </div>
               <div class="control">
