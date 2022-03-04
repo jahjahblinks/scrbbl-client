@@ -14,7 +14,7 @@ var playAndPauseButton = document.getElementById("playAndPause");
 var headerAudio = document.getElementById("headerAudio");
 
 //add events to those 2 buttons
-playAndPauseButton.addEventListener("click", playAndPause);
+playAndPauseButton.addEventListener("click", runSpeechRecognition);
 
 var listening = false;
 
@@ -29,11 +29,21 @@ function runSpeechRecognition() {
 
     // This runs when the speech recognition service starts
     recognition.onstart = function() {
-        headerAudio.innerHTML = "<small>listening, please speak...</small>";
+        console.log("recordButton clicked");
+        console.log("Begin Speech Recognition");
+        //prevent button push until after speech recognition is completed
+        playAndPauseButton.disabled = true;
+        playAndPauseButton.innerText = 'Wait';
+        playAndPauseButton.className = 'button is-danger is-borderless';
+        headerAudio.innerText = '🔊';
     };
 
     recognition.onspeechend = function() {
-        headerAudio.innerHTML = "<small>stopped listening, hope you are done...</small>";
+        console.log("Speech Recognition ended");
+        playAndPauseButton.disabled = false;
+        playAndPauseButton.innerText = 'Start';
+        playAndPauseButton.className = 'button is-primary is-borderless';
+        headerAudio.innerText = '🔈';
         recognition.stop();
     }
 
@@ -42,6 +52,9 @@ function runSpeechRecognition() {
         //transcript stored here
         var transcript = event.results[0][0].transcript;
         var confidence = event.results[0][0].confidence;
+        console.log("<b>Text:</b> " + transcript);
+        console.log("<b>Confidence:</b> " + confidence);
+//         send_message(transcript)
         //output confidence
         //output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
         //output.classList.remove("hide");
