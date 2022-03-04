@@ -52,9 +52,9 @@ function runSpeechRecognition() {
         //transcript stored here
         var transcript = event.results[0][0].transcript;
         var confidence = event.results[0][0].confidence;
-        console.log("<b>Text:</b> " + transcript);
-        console.log("<b>Confidence:</b> " + confidence);
-//         send_message(transcript)
+        console.log("Text: " + transcript);
+        console.log("Confidence: " + confidence);
+        document.getElementsById("message_typespace")[0].value = transcript;
         //output confidence
         //output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
         //output.classList.remove("hide");
