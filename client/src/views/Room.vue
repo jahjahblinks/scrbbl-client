@@ -244,7 +244,7 @@ export default {
       users: [],
       showUsers: false,
       room: null,
-      message: "the",
+      message: "",
       messages: [],
       painter: null,
       words: [],
