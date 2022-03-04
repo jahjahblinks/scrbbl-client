@@ -4,7 +4,7 @@
       <div class="content">
         <p>
           Developed by Team 6 at
-          <a href="https://www.youtube.com/watch?v=jWsx2iqO1ks&ab_channel=Grandayy">UCLA</a>.
+          <a href="https://www.youtube.com/watch?v=C9JyZIfDD2s">UCLA</a>.
         </p>
       </div>
     </div>
