@@ -176,6 +176,7 @@ script: [
             <form class="field has-addons chat-input" @submit="sendMessage">
               <div class="control">
                 <input
+                  id="message_typespace"
                   v-model="message"
                   class="input is-borderless"
                   type="text"
