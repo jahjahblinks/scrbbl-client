@@ -177,11 +177,11 @@ script: [
               <div class="control">
                 <input
                   id="message_typespace"
+                  value="test"
                   v-model="message"
                   class="input is-borderless"
                   type="text"
-                  value="seven"
-                  placeholder="Send"
+                  placeholder="Send a message..."
                 />
               </div>
               <div class="control">
