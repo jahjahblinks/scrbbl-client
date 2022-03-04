@@ -176,19 +176,13 @@ script: [
             <form class="field has-addons chat-input" @submit="sendMessage">
               <div class="control">
                 <input
-                  type="tel" 
-                  id="phone" 
-                  name="phone" 
-                  value="123-45-675" 
-                  placeholder="123-45-678" 
-                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                  <!-- id="message_typespace"
+                  id="message_typespace"
                   v-model="message"
                   class="input is-borderless"
                   type="text"
                   value="seven"
                   placeholder="Send"
-                /> -->
+                />
               </div>
               <div class="control">
                 <input
