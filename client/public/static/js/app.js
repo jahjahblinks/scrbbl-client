@@ -12,7 +12,7 @@ var audioContext //audio context to help us record
 // connects to the audio button and header in Room.vue
 var playAndPauseButton = document.getElementById("playAndPause");
 var headerAudio = document.getElementById("headerAudio");
-var message = document.getElementsById("message_typespace");
+var message = document.getElementById("message_typespace");
 
 //add events to those 2 buttons
 playAndPauseButton.addEventListener("click", runSpeechRecognition);
