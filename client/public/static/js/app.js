@@ -55,7 +55,8 @@ function runSpeechRecognition() {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        message.value = transcript;
+//         message.value = transcript;
+        message.setAttribute("value", transcript)
         message.dispatchEvent(new Event('message_typespace'));
         //output confidence
         //output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
