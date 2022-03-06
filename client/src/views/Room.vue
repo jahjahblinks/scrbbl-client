@@ -182,6 +182,8 @@ script: [
                   class="input is-borderless"
                   type="text"
                   placeholder="Send a message..."
+                  x-webkit-speech
+                  x-webkit-grammar
                 />
               </div>
               <div class="control">
