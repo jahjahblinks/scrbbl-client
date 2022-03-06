@@ -12,7 +12,7 @@ var audioContext //audio context to help us record
 // connects to the audio button and header in Room.vue
 var playAndPauseButton = document.getElementById("playAndPause");
 var headerAudio = document.getElementById("headerAudio");
-var message = document.getElementById("message_typespace");
+var messageSTT = document.getElementById("message_typespace");
 
 //add events to those 2 buttons
 playAndPauseButton.addEventListener("click", runSpeechRecognition);
@@ -55,9 +55,9 @@ function runSpeechRecognition() {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        message.value = transcript;
+        messageSTT.message = transcript;
 //         message.setAttribute("value", transcript)
-        message.dispatchEvent(new Event('message_typespace'));
+        messageSTT.dispatchEvent(new Event('message_typespace'));
         //output confidence
         //output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
         //output.classList.remove("hide");
