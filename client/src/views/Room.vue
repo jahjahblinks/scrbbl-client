@@ -178,7 +178,7 @@ script: [
                 <input
                   id="message_typespace"
                   value="test"
-                  //v-model="message"
+                  v-model="message"
                   class="input is-borderless"
                   type="text"
                   placeholder="Send a message..."
@@ -244,7 +244,7 @@ export default {
       users: [],
       showUsers: false,
       room: null,
-      message: "",
+      message: " ",
       messages: [],
       painter: null,
       words: [],
