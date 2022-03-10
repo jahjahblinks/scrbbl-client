@@ -178,6 +178,7 @@ script: [
                 <input
                   id="message_typespace"
                   value=""
+                  v-model="message"
                   class="input is-borderless"
                   type="text"
                   placeholder="Send a message..."
