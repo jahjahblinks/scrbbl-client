@@ -369,12 +369,13 @@ export default {
       }
 
       recognition.onresult = function(event) {
+        console.log(this.message);
         var transcript = event.results[0][0].transcript;
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         console.log(typeof transcript);
-        this.message.msg = transcript;
+        this.message = transcript;
         console.log(this.message);
       };
 
