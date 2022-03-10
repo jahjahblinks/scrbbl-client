@@ -298,7 +298,7 @@ export default {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         this.message = transcript;
-        this.$socket.emit("send_message", this.message);
+        sendMessage();
       };
       
       recognition.start();
