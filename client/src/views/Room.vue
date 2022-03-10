@@ -359,6 +359,7 @@ export default {
     stt() {
       var playAndPauseButton = document.getElementById("playAndPause");
       var headerAudio = document.getElementById("headerAudio");
+      var messageSTT = document.getElementById("message_typespace");
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var recognition = new SpeechRecognition();
 
@@ -387,6 +388,7 @@ export default {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         console.log(typeof transcript);
+        messageSTT.value = transcript;
         this.message = transcript;
         this.$socket.emit("receive_message", this.message)
         console.log(this.message);
