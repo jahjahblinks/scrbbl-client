@@ -374,8 +374,8 @@ export default {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         console.log(typeof transcript);
-        this.message = transcript;
-        console.log(this.message == transcript);
+        this.message.msg = transcript;
+        console.log(this.message);
       };
 
       recognition.start();
