@@ -205,8 +205,7 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt(),
-                      sendMessage();
+                      stt();
                     }
                   "
                 >
