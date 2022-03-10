@@ -344,43 +344,6 @@ export default {
         this.message = "";
       }
     },
-    stt() {
-      var playAndPauseButton = document.getElementById("playAndPause");
-      var headerAudio = document.getElementById("headerAudio");
-      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-      var recognition = new SpeechRecognition();
-
-      recognition.onstart = function() {
-        console.log("recordButton clicked");
-        console.log("Begin Speech Recognition");
-        playAndPauseButton.disabled = true;
-        playAndPauseButton.innerText = 'Wait';
-        playAndPauseButton.className = 'button is-danger is-borderless';
-        headerAudio.innerText = '🔊';
-      };
-
-      recognition.onspeechend = function() {
-        console.log("Speech Recognition ended");
-        playAndPauseButton.disabled = false;
-        playAndPauseButton.innerText = 'Start';
-        playAndPauseButton.className = 'button is-primary is-borderless';
-        headerAudio.innerText = '🔈';
-        recognition.stop();
-      }
-
-      recognition.onresult = function(event) {
-        console.log(this.message);
-        var transcript = event.results[0][0].transcript;
-        var confidence = event.results[0][0].confidence;
-        console.log("Text: " + transcript);
-        console.log("Confidence: " + confidence);
-        console.log(typeof transcript);
-        this.message = transcript;
-        console.log(this.message);
-      };
-
-      recognition.start();
-    },
     chooseWord(word) {
       this.$socket.emit("word_chosen", word);
     },
@@ -495,6 +458,44 @@ export default {
 
       this.guesserUps = guesser;
     }, */
+    stt() {
+      var playAndPauseButton = document.getElementById("playAndPause");
+      var headerAudio = document.getElementById("headerAudio");
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      var recognition = new SpeechRecognition();
+
+      recognition.onstart = function() {
+        console.log("recordButton clicked");
+        console.log("Begin Speech Recognition");
+        playAndPauseButton.disabled = true;
+        playAndPauseButton.innerText = 'Wait';
+        playAndPauseButton.className = 'button is-danger is-borderless';
+        headerAudio.innerText = '🔊';
+      };
+
+      recognition.onspeechend = function() {
+        console.log("Speech Recognition ended");
+        playAndPauseButton.disabled = false;
+        playAndPauseButton.innerText = 'Start';
+        playAndPauseButton.className = 'button is-primary is-borderless';
+        headerAudio.innerText = '🔈';
+        recognition.stop();
+      }
+
+      recognition.onresult = function(event) {
+        console.log(this.message);
+        var transcript = event.results[0][0].transcript;
+        var confidence = event.results[0][0].confidence;
+        console.log("Text: " + transcript);
+        console.log("Confidence: " + confidence);
+        console.log(typeof transcript);
+        this.message = transcript;
+        this.receive_message(transcript);
+        console.log(this.message);
+      };
+
+      recognition.start();
+    },
   },
   computed: {
     sortedUsers() {
