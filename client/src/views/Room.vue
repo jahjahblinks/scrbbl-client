@@ -301,7 +301,7 @@ export default {
       };
       
       recognition.start();
-    }
+    },
     async joinRoom() {
       // Getting Password
       let password = "";
