@@ -205,7 +205,7 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      sendMessage(stt());
+                      stt();
                     }
                   "
                 >
@@ -391,7 +391,6 @@ export default {
         messageSTT.value = transcript;
         this.message = transcript;
         console.log(this.message);
-        return transcript;
       };
 
       recognition.start();
