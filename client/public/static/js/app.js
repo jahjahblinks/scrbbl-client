@@ -15,11 +15,11 @@ var headerAudio = document.getElementById("headerAudio");
 var messageSTT = document.getElementById("message_typespace");
 
 //add events to those 2 buttons
-playAndPauseButton.addEventListener("click", runSpeechRecognition);
+playAndPauseButton.addEventListener("click", playAndPause);
 
 var listening = false;
 
-function runSpeechRecognition() {
+function playAndPause() {
     // get output div reference
 //     var output = document.getElementById("output"); //headerAudio
     // get action element reference
@@ -56,8 +56,9 @@ function runSpeechRecognition() {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         messageSTT.message = transcript;
+        messageSTT.value = transcript;
 //         message.setAttribute("value", transcript)
-        messageSTT.dispatchEvent(new Event('message_typespace'));
+//         messageSTT.dispatchEvent(new Event('message_typespace'));
         //output confidence
         //output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
         //output.classList.remove("hide");
@@ -145,7 +146,7 @@ function stopRecording() {
     rec.exportWAV(createDownloadLink);
 }
 
-function playAndPause() {
+function playAndPauseOG() {
   if (!listening) {
     console.log("Recording started");
     startRecording();
