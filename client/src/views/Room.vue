@@ -550,7 +550,7 @@ export default {
           console.log("Text: " + transcript);
           console.log("Confidence: " + confidence);
           this.message = transcript;
-          sendMessage();
+          this.sendMessage();
         };
 
         recognition.start();
