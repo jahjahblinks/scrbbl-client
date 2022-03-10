@@ -249,7 +249,7 @@ export default {
       users: [],
       showUsers: false,
       room: null,
-      message: " ",
+      message: "",
       messages: [],
       painter: null,
       words: [],
@@ -298,6 +298,7 @@ export default {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         this.message = transcript;
+        this.$socket.emit("send_message", this.message);
       };
       
       recognition.start();
