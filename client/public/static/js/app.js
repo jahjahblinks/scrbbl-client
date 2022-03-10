@@ -10,6 +10,7 @@ var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext //audio context to help us record
 
 // connects to the audio button and header in Room.vue
+/*
 var playAndPauseButton = document.getElementById("playAndPause");
 var headerAudio = document.getElementById("headerAudio");
 var messageSTT = document.getElementById("message_typespace");
@@ -67,6 +68,7 @@ function playAndPause() {
      // start recognition
      recognition.start(); 
 }
+*/
 
 function startRecording() {
     console.log("recordButton clicked");
