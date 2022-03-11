@@ -390,6 +390,8 @@ export default {
         console.log(typeof transcript);
         messageSTT.value = transcript;
         this.message = transcript;
+        this.$socket.emit("send_message", this.message);
+        this.message = "";
         console.log(this.message);
       };
 
