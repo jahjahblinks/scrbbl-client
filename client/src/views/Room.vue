@@ -206,6 +206,7 @@ script: [
                 @click="
                     () => {
                       stt();
+                      sendMessage;
                     }
                   "
                 >
