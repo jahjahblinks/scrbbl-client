@@ -382,17 +382,14 @@ export default {
       }
 
       recognition.onresult = function(event) {
-        console.log(this.message);
         var transcript = event.results[0][0].transcript;
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        console.log(typeof transcript);
         messageSTT.value = transcript;
         this.message = transcript;
         this.$socket.emit("send_message", this.message);
         this.message = "";
-        console.log(this.message);
       };
 
       recognition.start();
