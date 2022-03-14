@@ -14,6 +14,8 @@ script: [
         <h1 class="title is-2 has-text-centered has-text-primary" id="Title" v-if="room">
           {{ room.name.toUpperCase() }}
         </h1>
+        <!--place to put notes w/speechrec-->
+        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
         <h2 v-if="room && time >= 10" class="subtitle is-4 has-text-centered">
           {{ parseInt(time / 60) }}:{{ time % 60 <= 9 ? "0" + (time % 60) : time % 60 }}
         </h2>
@@ -217,10 +219,6 @@ script: [
       </div>
       
       <!--place to put notes w/speechrec-->
-      
-      <div class="column is-full">
-        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
-      </div>
       
 
       <div class="column is-full">
