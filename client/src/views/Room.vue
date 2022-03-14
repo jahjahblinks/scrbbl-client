@@ -23,7 +23,7 @@ script: [
         <h2 v-if="room && time > 0" class="subtitle is-4 has-text-centered has-text-weight-bold hint">
           <span class="hint-word">{{ wordHint.toUpperCase() }}</span>
         </h2>
-        <h2 class="subtitle is-4 has-text-centered has-text-danger has-text-weight-bold"> id="note">
+        <h2 class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">
           {{note}}
         </h2>
       </div>
@@ -428,8 +428,9 @@ export default {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         var new_note = "Note: " + transcript;
-        console.log(new_note)
+        console.log(new_note);
         this.note = new_note;
+        console.log(this.note);
       };
 
       recognition.start();
