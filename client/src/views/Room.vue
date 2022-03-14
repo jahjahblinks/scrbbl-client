@@ -416,8 +416,8 @@ export default {
       var new_note = "";
 
       recognition.onstart = function() {
-        console.log("recordButton clicked");
-        console.log("Begin Speech Recognition");
+        //console.log("recordButton clicked");
+        //console.log("Begin Speech Recognition");
         playAndPauseButton.disabled = true;
         playAndPauseButton.innerText = 'Wait';
         playAndPauseButton.className = 'button is-danger is-borderless';
@@ -425,7 +425,7 @@ export default {
       };
 
       recognition.onspeechend = function() {
-        console.log("Speech Recognition ended");
+        //console.log("Speech Recognition ended");
         playAndPauseButton.disabled = false;
         playAndPauseButton.innerText = 'Start';
         playAndPauseButton.className = 'button is-primary is-borderless';
@@ -437,7 +437,7 @@ export default {
         var transcript = event.results[0][0].transcript;
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
-        console.log("Confidence: " + confidence);
+        console.log(confidence);
         new_note = transcript.toLowerCase();
         console.log(new_note);
         notes.innerHTML = new_note;
