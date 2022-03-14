@@ -184,7 +184,7 @@ script: [
                   v-model="message"
                   class="input is-borderless"
                   type="text"
-                  placeholder="Add a note..."
+                  placeholder="Send a message..."
                 />
               </div>
               <div class="control">
@@ -427,7 +427,7 @@ export default {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        new_note = "Note: " + transcript;
+        var new_note = "Note: " + transcript;
         console.log(new_note)
         this.note = new_note;
       };
