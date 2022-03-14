@@ -181,7 +181,7 @@ script: [
                   v-model="message"
                   class="input is-borderless"
                   type="text"
-                  placeholder="Reset the title..."
+                  placeholder="Add a note..."
                 />
               </div>
               <div class="control">
@@ -226,9 +226,7 @@ script: [
                     <video id="videoInput" width=320 height=240></video>
                 </td>
                 -->
-                <p id="note" style="text-align:center">
-                    
-                </p>
+                <p id="note" style="text-align:center">Note: hello everyone!</p>
                 <td>
                     <canvas id="canvasOutput" width=320 height=240 hidden></canvas>
                 </td>
