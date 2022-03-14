@@ -226,6 +226,9 @@ script: [
                     <video id="videoInput" width=320 height=240></video>
                 </td>
                 -->
+                <p id="note" style="text-align:center">
+                    
+                </p>
                 <td>
                     <canvas id="canvasOutput" width=320 height=240 hidden></canvas>
                 </td>
@@ -397,7 +400,7 @@ export default {
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
       var headerAudio = document.getElementById("headerAudio");
-      var title = document.getElementById("Title");
+      var notes = document.getElementById("note");
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var recognition = new SpeechRecognition();
 
@@ -424,7 +427,8 @@ export default {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        title = transcript;
+        new_note = "Note: " + transcript;
+        notes.innerHTML = new_note;
       };
 
       recognition.start();
