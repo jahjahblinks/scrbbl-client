@@ -23,6 +23,9 @@ script: [
         <h2 v-if="room && time > 0" class="subtitle is-4 has-text-centered has-text-weight-bold hint">
           <span class="hint-word">{{ wordHint.toUpperCase() }}</span>
         </h2>
+        <h2 id="note" style="text-align:center">
+          {{note}}
+        </h2>
       </div>
 
       <div class="column is-3">
@@ -226,7 +229,6 @@ script: [
                     <video id="videoInput" width=320 height=240></video>
                 </td>
                 -->
-                <p id="note" style="text-align:center">Note: hello everyone!</p>
                 <td>
                     <canvas id="canvasOutput" width=320 height=240 hidden></canvas>
                 </td>
@@ -265,6 +267,7 @@ export default {
       guesserUps: [],
       artistUps: [],
       size: 5,
+      note: "",
     };
   },
   components: { Whiteboard },
@@ -398,7 +401,6 @@ export default {
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
       var headerAudio = document.getElementById("headerAudio");
-      var notes = document.getElementById("note");
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var recognition = new SpeechRecognition();
 
@@ -426,7 +428,8 @@ export default {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         new_note = "Note: " + transcript;
-        notes.innerHTML = new_note;
+        console.log(new_note)
+        this.note = new_note;
       };
 
       recognition.start();
