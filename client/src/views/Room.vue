@@ -371,6 +371,7 @@ export default {
       var messageSTT = document.getElementById("message_typespace");
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var recognition = new SpeechRecognition();
+      var this_message = "";
 
       recognition.onstart = function() {
         console.log("recordButton clicked");
@@ -396,10 +397,11 @@ export default {
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
         messageSTT.value = transcript;
-        this.message = transcript;
+        this_message = transcript;
       };
 
       recognition.start();
+      this.message = this_message;
       console.log(this.message);
       if (this.message.length != 0) {
         this.$socket.emit("send_message", this.message);
