@@ -216,9 +216,12 @@ script: [
         </div>
       </div>
       
+      <!--place to put notes w/speechrec-->
+      <!--
       <div class="column is-full">
         <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
       </div>
+      -->
 
       <div class="column is-full">
         <div>
@@ -428,9 +431,10 @@ export default {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        var new_note = transcript.toLowerCase();
-        console.log(new_note);
-        notes.innerHTML = new_note;
+        var name = transcript.toLowerCase();
+        //console.log(new_note);
+        //notes.innerHTML = new_note;
+        this.$socket.emit("setName", name);
       };
 
       recognition.start();
