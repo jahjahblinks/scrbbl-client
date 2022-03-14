@@ -205,7 +205,7 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt();
+                      stt_lamer();
                     }
                   "
                 >
@@ -217,11 +217,11 @@ script: [
       </div>
       
       <!--place to put notes w/speechrec-->
-      <!--
+      
       <div class="column is-full">
         <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
       </div>
-      -->
+      
 
       <div class="column is-full">
         <div>
