@@ -431,7 +431,6 @@ export default {
         var new_note = "Note: " + transcript;
         console.log(new_note);
         notes.innerHTML = new_note;
-        console.log(this.note);
       };
 
       recognition.start();
