@@ -271,6 +271,7 @@ export default {
       guesserUps: [],
       artistUps: [],
       size: 5,
+      names: "",
     };
   },
   components: { Whiteboard },
@@ -285,6 +286,7 @@ export default {
 
       // Getting Name
       let name = await this.getName();
+      this.names = name
       this.$socket.emit("setName", name);
       this.$socket.name = name;
       
@@ -407,6 +409,7 @@ export default {
       var notes = document.getElementById("note");
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var recognition = new SpeechRecognition();
+      var name = this.names;
 
       recognition.onstart = function() {
         console.log("recordButton clicked");
@@ -431,13 +434,13 @@ export default {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        var name = transcript.toLowerCase();
+        name = transcript.toLowerCase();
         //console.log(new_note);
         //notes.innerHTML = new_note;
-        this.$socket.emit("setName", name);
       };
 
       recognition.start();
+      this.$socket.emit("setName", name);
     },
   },
   sockets: {
