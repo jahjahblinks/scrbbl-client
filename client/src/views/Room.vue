@@ -23,7 +23,7 @@ script: [
         <h2 v-if="room && time > 0" class="subtitle is-4 has-text-centered has-text-weight-bold hint">
           <span class="hint-word">{{ wordHint.toUpperCase() }}</span>
         </h2>
-        <h2 id="note" style="text-align:center">
+        <h2 class="subtitle is-4 has-text-centered has-text-danger has-text-weight-bold"> id="note">
           {{note}}
         </h2>
       </div>
@@ -267,7 +267,7 @@ export default {
       guesserUps: [],
       artistUps: [],
       size: 5,
-      note: "",
+      note: "notes go here!",
     };
   },
   components: { Whiteboard },
