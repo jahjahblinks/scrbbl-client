@@ -136,10 +136,6 @@ script: [
           </div>
         </div> -->
       </div>
-      
-      <div class="column is-full">
-        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
-      </div>
 
       <whiteboard id="whiteboardID" :iDraw="iDraw" :started="roundStarted"/>
 
@@ -218,6 +214,10 @@ script: [
             </div>
           </header>
         </div>
+      </div>
+      
+      <div class="column is-full">
+        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
       </div>
 
       <div class="column is-full">
