@@ -23,9 +23,6 @@ script: [
         <h2 v-if="room && time > 0" class="subtitle is-4 has-text-centered has-text-weight-bold hint">
           <span class="hint-word">{{ wordHint.toUpperCase() }}</span>
         </h2>
-        <h2 class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">
-          {{note}}
-        </h2>
       </div>
 
       <div class="column is-3">
@@ -138,6 +135,10 @@ script: [
             <video id="videoInput" width=320 height=240 hidden></video>
           </div>
         </div> -->
+      </div>
+      
+      <div class="column is-full">
+        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
       </div>
 
       <whiteboard id="whiteboardID" :iDraw="iDraw" :started="roundStarted"/>
@@ -267,7 +268,6 @@ export default {
       guesserUps: [],
       artistUps: [],
       size: 5,
-      note: "notes go here!",
     };
   },
   components: { Whiteboard },
@@ -401,6 +401,7 @@ export default {
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
       var headerAudio = document.getElementById("headerAudio");
+      var notes = document.getElementById("note");
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var recognition = new SpeechRecognition();
 
@@ -429,7 +430,7 @@ export default {
         console.log("Confidence: " + confidence);
         var new_note = "Note: " + transcript;
         console.log(new_note);
-        this.note = new_note;
+        notes.innerHTML = new_note;
         console.log(this.note);
       };
 
