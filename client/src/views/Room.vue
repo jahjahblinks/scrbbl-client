@@ -428,7 +428,7 @@ export default {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        var new_note = "Note: " + transcript;
+        var new_note = transcript.toLowerCase();
         console.log(new_note);
         notes.innerHTML = new_note;
       };
