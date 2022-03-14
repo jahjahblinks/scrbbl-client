@@ -205,7 +205,7 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt_lamer();
+                      stt();
                     }
                   "
                 >
@@ -397,11 +397,14 @@ export default {
         console.log("Confidence: " + confidence);
         messageSTT.value = transcript;
         this.message = transcript;
-        this.$socket.emit("send_message", this.message);
-        this.message = "";
       };
 
       recognition.start();
+      console.log(this.message);
+      if (this.message.length != 0) {
+        this.$socket.emit("send_message", this.message);
+        this.message = "";
+      }
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
@@ -409,7 +412,7 @@ export default {
       var notes = document.getElementById("note");
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var recognition = new SpeechRecognition();
-      var name = this.names;
+      var new_note = "";
 
       recognition.onstart = function() {
         console.log("recordButton clicked");
@@ -434,13 +437,12 @@ export default {
         var confidence = event.results[0][0].confidence;
         console.log("Text: " + transcript);
         console.log("Confidence: " + confidence);
-        name = transcript.toLowerCase();
-        //console.log(new_note);
-        //notes.innerHTML = new_note;
+        new_note = transcript.toLowerCase();
+        console.log(new_note);
+        notes.innerHTML = new_note;
       };
 
       recognition.start();
-      this.$socket.emit("setName", name);
     },
   },
   sockets: {
