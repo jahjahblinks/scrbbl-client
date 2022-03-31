@@ -55,7 +55,7 @@ export default {
       this.$router.push({
         path: 'rooms'
       })
-    }
+    },
     openFreeDraw() {
       this.$router.push({
         path: 'freedraw'
