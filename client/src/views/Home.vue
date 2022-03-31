@@ -33,6 +33,10 @@
         <button class="button is-primary is-large " @click="openCreator">
           <strong>Create Room</strong>
         </button>
+        &nbsp;
+        <button class="button is-info is-large " @click="openFreeDraw">
+          <strong>Free Draw</strong>
+        </button>
       </div>
 
     </section>
