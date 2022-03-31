@@ -205,7 +205,7 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt_lamer();
+                      stt();
                     }
                   "
                 >
@@ -256,6 +256,7 @@ export default {
       showUsers: false,
       room: null,
       message: "",
+      voice_message: "",
       messages: [],
       painter: null,
       words: [],
@@ -401,11 +402,12 @@ export default {
 
       recognition.start();
       this.message = this_message;
-      console.log(this.message);
+      console.log("before"+this.message);
       if (this.message.length != 0) {
         this.$socket.emit("send_message", this.message);
         this.message = "";
       }
+      console.log("after"+this.message);
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
