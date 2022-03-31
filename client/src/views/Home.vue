@@ -35,7 +35,7 @@
         </button>
         &nbsp;
         <button class="button is-info is-large " @click="openFreeDraw">
-          <strong>Free Draw</strong>
+          <strong>Free Draw!</strong>
         </button>
       </div>
 
