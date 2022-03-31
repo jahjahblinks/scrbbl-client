@@ -56,6 +56,11 @@ export default {
         path: 'rooms'
       })
     }
+    openFreeDraw() {
+      this.$router.push({
+        path: 'freedraw'
+      })
+    }
   },
   // mounted() {
   //   let utilsScript = document.createElement('script');
