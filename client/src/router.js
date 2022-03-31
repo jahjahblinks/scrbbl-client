@@ -17,6 +17,14 @@ export default new Router({
       component: () =>
         import("./views/Rooms.vue")
     },
+
+     {
+      path: "/freedraw",
+      name: "freedraw",
+      component: () =>
+        import("./views/FreeDraw.vue")
+    },
+
     {
       path: "/room/:id",
       name: "room",
