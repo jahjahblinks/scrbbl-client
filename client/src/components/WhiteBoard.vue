@@ -91,6 +91,9 @@ export default {
         //this.size = newLineSize;
         //this.ctx.lineWidth(this.size);
     },
+    getUpdatedLineSize() {
+      return 
+    },
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
