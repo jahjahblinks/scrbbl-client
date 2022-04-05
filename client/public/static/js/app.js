@@ -10,15 +10,17 @@ var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext //audio context to help us record
 
 // connects to the audio button and header in Room.vue
+/*
 var playAndPauseButton = document.getElementById("playAndPause");
 var headerAudio = document.getElementById("headerAudio");
+var messageSTT = document.getElementById("message_typespace");
 
 //add events to those 2 buttons
 playAndPauseButton.addEventListener("click", playAndPause);
 
 var listening = false;
 
-function runSpeechRecognition() {
+function playAndPause() {
     // get output div reference
 //     var output = document.getElementById("output"); //headerAudio
     // get action element reference
@@ -29,11 +31,21 @@ function runSpeechRecognition() {
 
     // This runs when the speech recognition service starts
     recognition.onstart = function() {
-        headerAudio.innerHTML = "<small>listening, please speak...</small>";
+        console.log("recordButton clicked");
+        console.log("Begin Speech Recognition");
+        //prevent button push until after speech recognition is completed
+        playAndPauseButton.disabled = true;
+        playAndPauseButton.innerText = 'Wait';
+        playAndPauseButton.className = 'button is-danger is-borderless';
+        headerAudio.innerText = '🔊';
     };
 
     recognition.onspeechend = function() {
-        headerAudio.innerHTML = "<small>stopped listening, hope you are done...</small>";
+        console.log("Speech Recognition ended");
+        playAndPauseButton.disabled = false;
+        playAndPauseButton.innerText = 'Start';
+        playAndPauseButton.className = 'button is-primary is-borderless';
+        headerAudio.innerText = '🔈';
         recognition.stop();
     }
 
@@ -42,6 +54,12 @@ function runSpeechRecognition() {
         //transcript stored here
         var transcript = event.results[0][0].transcript;
         var confidence = event.results[0][0].confidence;
+        console.log("Text: " + transcript);
+        console.log("Confidence: " + confidence);
+        messageSTT.message = transcript;
+        messageSTT.value = transcript;
+//         message.setAttribute("value", transcript)
+//         messageSTT.dispatchEvent(new Event('message_typespace'));
         //output confidence
         //output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
         //output.classList.remove("hide");
@@ -50,6 +68,7 @@ function runSpeechRecognition() {
      // start recognition
      recognition.start(); 
 }
+*/
 
 function startRecording() {
     console.log("recordButton clicked");
@@ -129,7 +148,7 @@ function stopRecording() {
     rec.exportWAV(createDownloadLink);
 }
 
-function playAndPause() {
+function playAndPauseOG() {
   if (!listening) {
     console.log("Recording started");
     startRecording();

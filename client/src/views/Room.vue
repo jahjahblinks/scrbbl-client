@@ -11,7 +11,7 @@ script: [
   <div class="section-xs container">
     <div class="columns is-multiline">
       <div class="column is-full">
-        <h1 class="title is-2 has-text-centered has-text-primary" v-if="room">
+        <h1 class="title is-2 has-text-centered has-text-primary" id="Title" v-if="room">
           {{ room.name.toUpperCase() }}
         </h1>
         <h2 v-if="room && time >= 10" class="subtitle is-4 has-text-centered">
@@ -176,6 +176,8 @@ script: [
             <form class="field has-addons chat-input" @submit="sendMessage">
               <div class="control">
                 <input
+                  id="message_typespace"
+                  value=""
                   v-model="message"
                   class="input is-borderless"
                   type="text"
@@ -201,12 +203,23 @@ script: [
               <button 
                 id="playAndPause"
                 class = "button is-primary is-borderless"
+                @click="
+                    () => {
+                      stt();
+                    }
+                  "
                 >
                 Start
               </button>
             </div>
           </header>
         </div>
+      </div>
+      
+      <!--place to put notes w/speechrec-->
+      
+      <div class="column is-full">
+        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
       </div>
 
       <div class="column is-full">
@@ -243,6 +256,7 @@ export default {
       showUsers: false,
       room: null,
       message: "",
+      voice_message: "",
       messages: [],
       painter: null,
       words: [],
@@ -257,6 +271,7 @@ export default {
       guesserUps: [],
       artistUps: [],
       size: 5,
+      names: "",
     };
   },
   components: { Whiteboard },
@@ -271,6 +286,7 @@ export default {
 
       // Getting Name
       let name = await this.getName();
+      this.names = name
       this.$socket.emit("setName", name);
       this.$socket.name = name;
       
@@ -348,6 +364,88 @@ export default {
       this.$nextTick(() => {
         this.$refs.chat.scrollTo(0, this.$refs.chat.scrollHeight);
       });
+    },
+    stt() {
+      var playAndPauseButton = document.getElementById("playAndPause");
+      var headerAudio = document.getElementById("headerAudio");
+      var messageSTT = document.getElementById("message_typespace");
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      var recognition = new SpeechRecognition();
+      var this_message = "";
+
+      recognition.onstart = function() {
+        console.log("recordButton clicked");
+        console.log("Begin Speech Recognition");
+        playAndPauseButton.disabled = true;
+        playAndPauseButton.innerText = 'Wait';
+        playAndPauseButton.className = 'button is-danger is-borderless';
+        headerAudio.innerText = '🔊';
+      };
+
+      recognition.onspeechend = function() {
+        console.log("Speech Recognition ended");
+        playAndPauseButton.disabled = false;
+        playAndPauseButton.innerText = 'Start';
+        playAndPauseButton.className = 'button is-primary is-borderless';
+        headerAudio.innerText = '🔈';
+        recognition.stop();
+      }
+
+      recognition.onresult = function(event) {
+        var transcript = event.results[0][0].transcript;
+        var confidence = event.results[0][0].confidence;
+        console.log("Text: " + transcript);
+        console.log("Confidence: " + confidence);
+        messageSTT.value = transcript;
+        this_message = transcript;
+      };
+
+      recognition.start();
+      this.message = this_message;
+      console.log("before"+this.message);
+      if (this.message.length != 0) {
+        this.$socket.emit("send_message", this.message);
+        this.message = "";
+      }
+      console.log("after"+this.message);
+    },
+    stt_lamer() {
+      var playAndPauseButton = document.getElementById("playAndPause");
+      var headerAudio = document.getElementById("headerAudio");
+      var notes = document.getElementById("note");
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      var recognition = new SpeechRecognition();
+      var new_note = "";
+
+      recognition.onstart = function() {
+        //console.log("recordButton clicked");
+        //console.log("Begin Speech Recognition");
+        playAndPauseButton.disabled = true;
+        playAndPauseButton.innerText = 'Wait';
+        playAndPauseButton.className = 'button is-danger is-borderless';
+        headerAudio.innerText = '🔊';
+      };
+
+      recognition.onspeechend = function() {
+        //console.log("Speech Recognition ended");
+        playAndPauseButton.disabled = false;
+        playAndPauseButton.innerText = 'Start';
+        playAndPauseButton.className = 'button is-primary is-borderless';
+        headerAudio.innerText = '🔈';
+        recognition.stop();
+      }
+
+      recognition.onresult = function(event) {
+        var transcript = event.results[0][0].transcript;
+        var confidence = event.results[0][0].confidence;
+        console.log("Text: " + transcript);
+        console.log(confidence);
+        new_note = transcript.toLowerCase();
+        console.log(new_note);
+        notes.innerHTML = new_note;
+      };
+
+      recognition.start();
     },
   },
   sockets: {
