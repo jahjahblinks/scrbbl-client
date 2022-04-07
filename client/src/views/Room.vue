@@ -410,7 +410,7 @@ export default {
       }
     },
     stt_word() {
-      if(this.message!=="") {//we want it to not be empty
+      if(this.message==="") {//we want it to not be empty
         setTimeout(stt_word, 50);//wait 50 millisecnds then recheck
         return;
       }
