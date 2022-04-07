@@ -205,7 +205,7 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt();
+                      stt();stt2();
                     }
                   "
                 >
@@ -408,6 +408,12 @@ export default {
         this.message = "";
       }
       console.log("after"+this.message);
+    },
+    stt2() {
+      console.log(this.message);
+      if (this.message.length != 0) {
+        this.$socket.emit("send_message", this.message);
+        this.message = "";
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
