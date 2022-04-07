@@ -284,7 +284,7 @@ export default {
 <style lang="scss">
 .control.is-fullwidth {
   flex: 1;
-}ECE 180DA: Lab Report Week 8
+}
 
 .fade-enter,
 .fade-leave-active {
