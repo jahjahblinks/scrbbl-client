@@ -399,6 +399,7 @@ export default {
         console.log("Confidence: " + confidence);
         messageSTT.value = transcript;
         this_message = transcript;
+        this.stt_word();
       };
 
       recognition.start();
