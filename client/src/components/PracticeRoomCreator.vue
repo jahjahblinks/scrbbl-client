@@ -199,7 +199,7 @@ export default {
         }
       }
 
-      if (roomdata.maxPlayers < 2) {
+      if (roomdata.maxPlayers < 1) {
         this.$set(this.$data.errors, "players", true);
         flag = false;
       } else {
@@ -234,7 +234,7 @@ export default {
         this.$set(this.$data.errors, "rounds", false);
       }
 
-      if (roomdata.roundTime > 180) {
+      if (roomdata.roundTime > 300) {
         this.$set(this.$data.errors, "max_rounds", true);
         flag = false;
       } else {
@@ -272,7 +272,7 @@ export default {
     resetForm() {
       this.$data.name = "";
       this.$data.password = "";
-      this.$data.maxPlayers = 2;
+      this.$data.maxPlayers = 1;
       this.$data.maxRounds = 3;
       this.$data.isPrivate = false;
       this.$data.errors = {};

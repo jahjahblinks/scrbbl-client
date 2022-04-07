@@ -34,8 +34,8 @@
           <strong>Create Room</strong>
         </button>
         &nbsp;
-        <button class="button is-info is-large " @click="openFreeDraw">
-          <strong>Free Draw!</strong>
+        <button class="button is-info is-large " @click="openPractice">
+          <strong>Practice!</strong>
         </button>
       </div>
 
@@ -56,9 +56,9 @@ export default {
         path: 'rooms'
       })
     },
-    openFreeDraw() {
+    openPractice() {
       this.$router.push({
-        path: 'freedraw'
+        path: 'practice'
       })
     }
   },

@@ -19,10 +19,10 @@ export default new Router({
     },
 
     {
-      path: "/freedraw",
-      name: "freedraw",
+      path: "/practice",
+      name: "practice",
       component: () =>
-        import("./views/FreeDraw.vue")
+        import("./views/Practice.vue")
     },
 
     {
