@@ -400,9 +400,6 @@ export default {
         console.log("Confidence: " + confidence);
         messageSTT.value = transcript;
         this_message = transcript;
-        this.message_stt = this_message;
-        console.log(this.message_stt)
-        
         notes.innerHTML = this_message;
       };
 
@@ -411,9 +408,7 @@ export default {
     },
     stt_word() {
       var notes = document.getElementById("note");
-      console.log("wait for message to update");
       if(notes.innerHTML==="") {//we want it to not be empty
-        console.log(this.message_stt)
         setTimeout(this.stt_word, 50);//wait 50 milliseconds then recheck
         return;
       }
@@ -421,7 +416,6 @@ export default {
         this.$socket.emit("send_message", notes.innerHTML);
         notes.innerHTML = "";
       }
-      console.log("after stt"+this.message_stt);
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
