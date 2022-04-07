@@ -399,7 +399,6 @@ export default {
         console.log("Confidence: " + confidence);
         messageSTT.value = transcript;
         this_message = transcript;
-        this.stt_word();
       };
 
       recognition.start();
@@ -411,6 +410,10 @@ export default {
       }
     },
     stt_word() {
+      if(this.message!=="") {//we want it to not be empty
+        setTimeout(stt_word, 50);//wait 50 millisecnds then recheck
+        return;
+      }
       console.log("after stt"+this.message);
     },
     stt_lamer() {
