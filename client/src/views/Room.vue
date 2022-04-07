@@ -206,6 +206,7 @@ script: [
                 @click="
                     () => {
                       stt();
+                      stt_word();
                     }
                   "
                 >
@@ -407,7 +408,9 @@ export default {
         this.$socket.emit("send_message", this.message);
         this.message = "";
       }
-      console.log("after"+this.message);
+    },
+    stt_word() {
+      console.log("after stt"+this.message);
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
