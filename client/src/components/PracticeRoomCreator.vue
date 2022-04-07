@@ -163,10 +163,10 @@ export default {
     return {
       name: "",
       password: "",
-      maxPlayers: 2,
+      maxPlayers: 1,
       maxRounds: 3,
-      roundTime: 60,
-      wordTime: 25,
+      roundTime: 600,
+      wordTime: 250,
       isPrivate: false,
       errors: {},
     };
@@ -234,7 +234,7 @@ export default {
         this.$set(this.$data.errors, "rounds", false);
       }
 
-      if (roomdata.roundTime > 300) {
+      if (roomdata.roundTime > 600) {
         this.$set(this.$data.errors, "max_rounds", true);
         flag = false;
       } else {
@@ -248,7 +248,7 @@ export default {
         this.$set(this.$data.errors, "word", false);
       }
 
-      if (roomdata.wordTime > 60) {
+      if (roomdata.wordTime > 250) {
         this.$set(this.$data.errors, "max_word", true);
         flag = false;
       } else {
@@ -284,7 +284,7 @@ export default {
 <style lang="scss">
 .control.is-fullwidth {
   flex: 1;
-}
+}ECE 180DA: Lab Report Week 8
 
 .fade-enter,
 .fade-leave-active {
