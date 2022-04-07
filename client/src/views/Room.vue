@@ -409,7 +409,7 @@ export default {
     stt_word() {
       console.log("wait for message to update");
       if(this.message==="") {//we want it to not be empty
-        setTimeout(stt_word, 50);//wait 50 milliseconds then recheck
+        setTimeout(stt_word(), 50);//wait 50 milliseconds then recheck
         return;
       }
       console.log("after stt"+this.message);
