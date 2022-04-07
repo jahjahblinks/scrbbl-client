@@ -400,20 +400,17 @@ export default {
         messageSTT.value = transcript;
         this_message = transcript;
         this.message = this_message;
+        return this_message;
       };
 
       recognition.start();
       this.message = this_message;
-      console.log("before"+this.message);
-      if (this.message.length != 0) {
-        this.$socket.emit("send_message", this.message);
-        this.message = "";
+      this.$socket.emit("send_message", "I'm using speech recognition software!");
       }
     },
     stt_word() {
       console.log("wait for message to update");
       if(this.message==="") {//we want it to not be empty
-        this.$socket.emit("send_message", "hello");
         setTimeout(stt_word, 50);//wait 50 millisecnds then recheck
         return;
       }
