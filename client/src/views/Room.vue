@@ -404,7 +404,6 @@ export default {
       };
 
       recognition.start();
-      this.$socket.emit("send_message", "I'm using speech recognition software!");
     },
     stt_word() {
       var notes = document.getElementById("note");
