@@ -400,7 +400,6 @@ export default {
         messageSTT.value = transcript;
         this_message = transcript;
         this.message = this_message;
-        return this_message;
       };
 
       recognition.start();
