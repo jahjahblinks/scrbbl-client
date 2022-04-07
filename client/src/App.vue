@@ -15,7 +15,7 @@
 import Nav from "./components/Nav.vue";
 import Footer from "./components/Footer.vue";
 import RoomCreator from "./components/RoomCreator.vue";
-import PracticeRoomCreator from "./components/PracticeRoomCreator.vue"
+import PracticeRoomCreator from "./components/PracticeRoomCreator.vue";
 
 export default {
   name: "App",
