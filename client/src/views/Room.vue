@@ -532,6 +532,9 @@ export default {
     decrease_brush() {
       this.Whiteboard.decreaseLineSize();
     },
+    start_speech() {
+      this.stt();
+    },
     /* get_powerups(points) {
       var power_list = ['Extend Time ⏳','Reveal Hint to Guessers 👁️','Double Points ✌️','Reveal Hint 👁️','Remove Hints ❌','Extra 💯 Points'];
       var guesser = [];
