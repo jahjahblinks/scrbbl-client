@@ -417,7 +417,10 @@ export default {
         setTimeout(this.stt_word, 50);//wait 50 milliseconds then recheck
         return;
       }
-      notes.innerHTML = "";
+      if(notes.innerHTML != 0) {
+        this.$socket.emit("send_message", notes.innerHTML);
+        notes.innerHTML = "";
+      }
       console.log("after stt"+this.message_stt);
     },
     stt_lamer() {
