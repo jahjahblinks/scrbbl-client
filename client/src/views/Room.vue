@@ -413,6 +413,7 @@ export default {
     stt_word() {
       console.log("wait for message to update");
       if(this.message==="") {//we want it to not be empty
+        this.$socket.emit("send_message", "hello");
         setTimeout(stt_word, 50);//wait 50 millisecnds then recheck
         return;
       }
