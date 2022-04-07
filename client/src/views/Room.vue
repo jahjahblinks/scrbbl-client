@@ -404,11 +404,10 @@ export default {
 
       recognition.start();
       this.message = this_message;
-      }
+      this.$socket.emit("send_message", "I'm using speech recognition software!");
     },
     stt_word() {
       console.log("wait for message to update");
-      this.$socket.emit("send_message", "I'm using speech recognition software!");
       if(this.message==="") {//we want it to not be empty
         setTimeout(stt_word, 50);//wait 50 milliseconds then recheck
         return;
