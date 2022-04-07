@@ -257,7 +257,7 @@ export default {
       showUsers: false,
       room: null,
       message: "",
-      voice_message: "",
+      message_stt: "",
       messages: [],
       painter: null,
       words: [],
@@ -399,20 +399,21 @@ export default {
         console.log("Confidence: " + confidence);
         messageSTT.value = transcript;
         this_message = transcript;
-        this.message = this_message;
+        this.message_stt = this_message;
+        console.log(this.message_stt)
       };
 
       recognition.start();
-      this.message = this_message;
       this.$socket.emit("send_message", "I'm using speech recognition software!");
     },
     stt_word() {
       console.log("wait for message to update");
-      if(this.message==="") {//we want it to not be empty
+      if(this.message_stt==="") {//we want it to not be empty
+        console.log(this.message_stt)
         setTimeout(this.stt_word, 50);//wait 50 milliseconds then recheck
         return;
       }
-      console.log("after stt"+this.message);
+      console.log("after stt"+this.message_stt);
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
