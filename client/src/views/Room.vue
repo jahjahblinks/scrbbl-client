@@ -205,7 +205,7 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt2();
+                      stt();
                     }
                   "
                 >
@@ -410,7 +410,6 @@ export default {
       console.log("after"+this.message);
     },
     stt2() {
-      this.stt()
       console.log(this.message);
       if (this.message.length != 0) {
         this.$socket.emit("send_message", this.message);
