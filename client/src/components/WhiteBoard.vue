@@ -158,14 +158,14 @@ export default {
       };
     },
     addEvents() {
-      window.addEventListener("keydown", this.increaseLineSize);
+      window.addEventListener("keydown", this.increaseLineSize); //debugging
       window.addEventListener("mousedown", this.enableDrawing);
       window.addEventListener("touchstart", this.enableDrawing);
       window.addEventListener("mouseup", this.disableDrawing);
       window.addEventListener("touchend", this.disableDrawing);
     },
     removeEvents() {
-      window.addEventListener("keydown", this.increaseLineSize);
+      window.addEventListener("keydown", this.increaseLineSize); //debugging
       window.removeEventListener("mousedown", this.enableDrawing);
       window.removeEventListener("touchstart", this.enableDrawing);
       window.removeEventListener("mouseup", this.disableDrawing);
@@ -186,11 +186,13 @@ export default {
       newLineSize = this.size + 5;
       if(newLineSize < 55)
         this.size = newLineSize;
+        this.ctx.lineWidth += 5;
     },
     decrease_pen_size() {
       newLineSize = this.size - 5;
       if(newLineSize > 0)
         this.size = newLineSize;
+        this.ctx.lineWidth -= 5;
     },
     paint(coords) {
       if (coords) {

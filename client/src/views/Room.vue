@@ -541,6 +541,7 @@ export default {
     },
     start_speech() {
       this.stt();
+      this.stt_word();
     },
     /* get_powerups(points) {
       var power_list = ['Extend Time ⏳','Reveal Hint to Guessers 👁️','Double Points ✌️','Reveal Hint 👁️','Remove Hints ❌','Extra 💯 Points'];
