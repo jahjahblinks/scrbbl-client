@@ -92,7 +92,7 @@ export default {
         //this.ctx.lineWidth(this.size);
     },
     getUpdatedLineSize() {
-      return 
+      return this.size;
     },
     drawLine(line) {
       let CTX = this.ctx;
