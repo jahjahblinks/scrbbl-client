@@ -533,6 +533,9 @@ export default {
     receive_hint(wordHint) {
       this.wordHint = wordHint;
     },
+    reset_pen_size() {
+      this.Whiteboard.resetLineSize();
+    },
     increase_brush() {
       this.Whiteboard.increaseLineSize();
     },
