@@ -183,17 +183,18 @@ export default {
   },
   sockets: {
     increase_pen_size() {
-      //this.increaseLineSize();
-      newLineSize = this.size + 5;
-      if(newLineSize < 55)
-        this.size = newLineSize;
-        this.increaseLineSize();
+      this.increaseLineSize();
+      //newLineSize = this.size + 5;
+      //if(newLineSize < 55)
+      //  this.size = newLineSize;
+      //  this.increaseLineSize();
     },
     decrease_pen_size() {
-      newLineSize = this.size - 5;
-      if(newLineSize > 0)
-        this.size = newLineSize;
-        this.decreaseLineSize();
+     this.decreaseLineSize();
+     //newLineSize = this.size - 5;
+     //if(newLineSize > 0)
+     //  this.size = newLineSize;
+     //  this.decreaseLineSize();
     },
     reset_pen_size() {
       this.ctx.lineWidth = 5;
