@@ -77,7 +77,7 @@ export default {
     },
     increaseLineSize() //Increase drawing line size by 5
     {
-      this.ctx.lineWidth += 5;
+      this.ctx.lineWidth += 10;
       //newLineSize = this.size + 5;
       //if(newLineSize < 55)
         //this.size = newLineSize;
@@ -85,7 +85,7 @@ export default {
     },
     decreaseLineSize() //Decrease drawing line size by 5
     {
-      this.ctx.lineWidth -= 5; 
+      this.ctx.lineWidth -= 10; 
       //newLineSize = this.size - 5;
       //if(newLineSize > 0)
         //this.size = newLineSize;
