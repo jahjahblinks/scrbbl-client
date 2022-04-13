@@ -183,10 +183,11 @@ export default {
   },
   sockets: {
     increase_pen_size() {
-      newLineSize = this.size + 5;
-      if(newLineSize < 55)
-        this.size = newLineSize;
-        this.ctx.lineWidth += 5;
+      this.increaseLineSize();
+      //newLineSize = this.size + 5;
+      //if(newLineSize < 55)
+      //  this.size = newLineSize;
+      //  this.ctx.lineWidth += 5;
     },
     decrease_pen_size() {
       newLineSize = this.size - 5;
