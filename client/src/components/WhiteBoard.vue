@@ -91,6 +91,14 @@ export default {
         //this.size = newLineSize;
         //this.ctx.lineWidth(this.size);
     },
+    resetLineSize() //Decrease drawing line size by 5
+    {
+      this.ctx.lineWidth = 5; 
+      //newLineSize = this.size - 5;
+      //if(newLineSize > 0)
+        //this.size = newLineSize;
+        //this.ctx.lineWidth(this.size);
+    },
     getUpdatedLineSize() {
       return this.size;
     },
@@ -197,8 +205,7 @@ export default {
      //  this.decreaseLineSize();
     },
     reset_pen_size() {
-      this.ctx.lineWidth = 5;
-      this.size = 5;
+      this.resetLineSize();
     },
     paint(coords) {
       if (coords) {
