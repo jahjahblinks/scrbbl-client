@@ -125,8 +125,8 @@ export default {
         if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
           let coords = { prevPos: this.prevPos, currPos: pos };
           let paintObj = { color: this.activeColor, coords };
-          this.$socket.emit("paint", paintObj);
-          this.drawLine(paintObj);
+          //this.$socket.emit("paint", paintObj);
+          //this.drawLine(paintObj);
         }
         // New previous pos
         this.prevPos.x = pos.x;
