@@ -153,11 +153,11 @@
     </form>
   </card-modal>
 </template>
--->
 
 <script>
 import Switches from "vue-switches";
 import { CardModal } from "vue-bulma-modal";
+-->
 
 export default {
   name: "roomCreator",
