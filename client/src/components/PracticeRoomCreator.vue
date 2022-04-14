@@ -1,4 +1,3 @@
-<!--
 <template>
   <card-modal
     :visible="isVisible"
@@ -157,7 +156,6 @@
 <script>
 import Switches from "vue-switches";
 import { CardModal } from "vue-bulma-modal";
--->
 
 export default {
   name: "roomCreator",
