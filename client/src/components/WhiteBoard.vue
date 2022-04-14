@@ -103,9 +103,10 @@ export default {
       return this.size;
     },
     drawLine(line) {
-      console.log("drawLine function in WhiteBoard.vue");
+      console.log("2.19 drawLine function in WhiteBoard.vue");
       let CTX = this.ctx;
       let { color, coords } = line;
+      return;     // ATTEMPTING TO BREAK THINGS, REMOVE
       //var lineWidth = this.size;
       //CTX.lineWidth = lineWidth; //Dynamic line size
       if (coords) {
@@ -118,15 +119,15 @@ export default {
       }
     },
     emitLine(e) {
-      console.log("emitLine function in WhiteBoard.vue");
+      console.log("2.19 emitLine function in WhiteBoard.vue");
       if (this.draw && this.iDraw) {
         let pos = this.getCanvasPosition(this.$refs.canvas, e);
 
         if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
           let coords = { prevPos: this.prevPos, currPos: pos };
           let paintObj = { color: this.activeColor, coords };
-          //this.$socket.emit("paint", paintObj);
-          //this.drawLine(paintObj);
+          //this.$socket.emit("paint", paintObj);   // ATTEMPTING TO BREAK THINGS, REMOVE
+          //this.drawLine(paintObj);                // ATTEMPTING TO BREAK THINGS, REMOVE
         }
         // New previous pos
         this.prevPos.x = pos.x;
@@ -210,7 +211,7 @@ export default {
       this.resetLineSize();
     },
     paint(coords) {
-      console.log("paint socket in WhiteBoard.vue")
+      console.log("2.19 paint socket in WhiteBoard.vue")
       if (coords) {
         this.drawLine(coords);
       }
