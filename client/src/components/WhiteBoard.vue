@@ -105,10 +105,6 @@ export default {
     drawLine(line) {
       let CTX = this.ctx;
       let { color, coords } = line;
-      console.log("color: ");
-      console.log(color);
-      console.log("line: ");
-      console.log(line);
       //var lineWidth = this.size;
       //CTX.lineWidth = lineWidth; //Dynamic line size
       if (coords) {
@@ -123,6 +119,22 @@ export default {
     emitLine(e) {
       if (this.draw && this.iDraw) {
         let pos = this.getCanvasPosition(this.$refs.canvas, e);
+
+        if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
+          let coords = { prevPos: this.prevPos, currPos: pos };
+          let paintObj = { color: this.activeColor, coords };
+          this.$socket.emit("paint", paintObj);
+          this.drawLine(paintObj);
+        }
+        // New previous pos
+        this.prevPos.x = pos.x;
+        this.prevPos.y = pos.y;
+      }
+    },
+    emitLineByHand(coords){
+      console.log("emitLineByHand in WhiteBoard.vue getting called");
+      if(this.draw && this.iDraw){
+        let pos = coords;
 
         if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
           let coords = { prevPos: this.prevPos, currPos: pos };
@@ -214,6 +226,11 @@ export default {
     paint(coords) {
       if (coords) {
         this.drawLine(coords);
+      }
+    },
+    handCoords(coords){
+      if(coords){
+        this.emitLineByHand(coords);
       }
     },
     getPainting(lines) {
