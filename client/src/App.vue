@@ -26,6 +26,7 @@ export default {
     navigation: Nav,
     foot: Footer,
     "room-creator": RoomCreator,
+    "practice-creator": PracticeRoomCreator,
   },
   methods: {
     leaveRoom() {
