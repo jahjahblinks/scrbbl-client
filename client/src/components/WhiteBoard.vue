@@ -103,9 +103,12 @@ export default {
       return this.size;
     },
     drawLine(line) {
-      console.log("2.23 drawLine function in WhiteBoard.vue");
       let CTX = this.ctx;
       let { color, coords } = line;
+      console.log("color: ");
+      console.log(color);
+      console.log("line: ");
+      console.log(line);
       //var lineWidth = this.size;
       //CTX.lineWidth = lineWidth; //Dynamic line size
       if (coords) {
@@ -118,7 +121,6 @@ export default {
       }
     },
     emitLine(e) {
-      console.log("2.23 emitLine function in WhiteBoard.vue");
       if (this.draw && this.iDraw) {
         let pos = this.getCanvasPosition(this.$refs.canvas, e);
 
@@ -210,7 +212,6 @@ export default {
       this.resetLineSize();
     },
     paint(coords) {
-      console.log("2.23 paint socket in WhiteBoard.vue")
       if (coords) {
         this.drawLine(coords);
       }
