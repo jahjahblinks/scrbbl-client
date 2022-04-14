@@ -103,6 +103,7 @@ export default {
       return this.size;
     },
     drawLine(line) {
+      console.log("drawLine function in WhiteBoard.vue");
       let CTX = this.ctx;
       let { color, coords } = line;
       //var lineWidth = this.size;
@@ -117,6 +118,7 @@ export default {
       }
     },
     emitLine(e) {
+      console.log("emitLine function in WhiteBoard.vue");
       if (this.draw && this.iDraw) {
         let pos = this.getCanvasPosition(this.$refs.canvas, e);
 
@@ -208,6 +210,7 @@ export default {
       this.resetLineSize();
     },
     paint(coords) {
+      console.log("paint socket in WhiteBoard.vue")
       if (coords) {
         this.drawLine(coords);
       }
