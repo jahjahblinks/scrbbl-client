@@ -37,6 +37,9 @@ export default {
     closeCreator() {
       this.$data.isModalVisible = false;
     },
+    openPractice() {
+      this.$data.isModalVisible = true;
+    }
   },
   sockets: {
     room_created(id) {
