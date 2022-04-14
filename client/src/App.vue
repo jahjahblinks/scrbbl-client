@@ -9,6 +9,15 @@
       @closeCreator="closeCreator"
     ></room-creator>
     <foot></foot>
+    <navigation @openPractice="openPractice" />
+    <div class="main">
+      <router-view @openPractice="openPractice" />
+    </div>
+    <room-creator
+      :isVisible="isModalVisible"
+      @closeCreator="closeCreator"
+    ></room-creator>
+    <foot></foot>
   </div>
 </template>
 <script>
@@ -26,6 +35,7 @@ export default {
     navigation: Nav,
     foot: Footer,
     "room-creator": RoomCreator,
+    "practice-creator": PracticeRoomCreator,
   },
   methods: {
     leaveRoom() {
