@@ -4,7 +4,7 @@
     title="Create Room"
     transition="fade"
     @cancel="close"
-    @ok="createRoom"
+    @didthischangethebutton="createRoom"
     class="section-xs"
   >
     <form class="columns is-multiline">
