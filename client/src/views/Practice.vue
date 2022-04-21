@@ -7,7 +7,6 @@ script: [
 ]
 }-->
 
-<!--test-->
 <template>
   <div class="section-xs container">
     <div class="columns is-multiline">
