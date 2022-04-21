@@ -213,7 +213,7 @@ export default {
         this.$set(this.$data.errors, "max_players", false);
       }
 
-      if (roomdata.maxRounds < 2) {
+      if (roomdata.maxRounds < 1) {
         this.$set(this.$data.errors, "num_rounds", true);
         flag = false;
       } else {
@@ -234,7 +234,7 @@ export default {
         this.$set(this.$data.errors, "rounds", false);
       }
 
-      if (roomdata.roundTime > 600) {
+      if (roomdata.roundTime > 6000) {
         this.$set(this.$data.errors, "max_rounds", true);
         flag = false;
       } else {
