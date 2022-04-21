@@ -70,34 +70,33 @@ export default {
     initBoard() {
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
-      this.size = 10;
+      this.size = 5;
     },
     clearBoard() {
       this.$socket.emit("clear");
     },
     increaseLineSize() //Increase drawing line size by 5
     {
-      this.ctx.lineWidth += 10;
-      //newLineSize = this.size + 5;
-      //if(newLineSize < 55)
-        //this.size = newLineSize;
+      this.ctx.lineWidth += 25;
+
+      newLineSize = this.size + 25;
+      this.size = newLineSize;
         //this.ctx.lineWidth(this.size);
     },
     decreaseLineSize() //Decrease drawing line size by 5
     {
-      this.ctx.lineWidth -= 10; 
-      //newLineSize = this.size - 5;
-      //if(newLineSize > 0)
-        //this.size = newLineSize;
+      this.ctx.lineWidth -= 25; 
+
+      newLineSize = this.size - 25;
+      if(newLineSize > 0) {
+        this.size = newLineSize;
+      }
         //this.ctx.lineWidth(this.size);
     },
     resetLineSize() //Decrease drawing line size by 5
     {
       this.ctx.lineWidth = 5; 
-      //newLineSize = this.size - 5;
-      //if(newLineSize > 0)
-        //this.size = newLineSize;
-        //this.ctx.lineWidth(this.size);
+      this.size = 5;
     },
     getUpdatedLineSize() {
       return this.size;
@@ -190,15 +189,17 @@ export default {
     },
   },
   sockets: {
-    increase_pen_size() {
+    increase_pen_size(getSize) {
       this.increaseLineSize();
+      getSize = this.size;
       //newLineSize = this.size + 5;
       //if(newLineSize < 55)
       //  this.size = newLineSize;
       //  this.increaseLineSize();
     },
-    decrease_pen_size() {
+    decrease_pen_size(getSize) {
      this.decreaseLineSize();
+     getSize = this.size;
      //newLineSize = this.size - 5;
      //if(newLineSize > 0)
      //  this.size = newLineSize;

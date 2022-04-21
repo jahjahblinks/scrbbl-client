@@ -533,6 +533,7 @@ export default {
     receive_hint(wordHint) {
       this.wordHint = wordHint;
     },
+    /*
     reset_pen_size() {
       this.Whiteboard.resetLineSize();
     },
@@ -541,7 +542,7 @@ export default {
     },
     decrease_brush() {
       this.Whiteboard.decreaseLineSize();
-    },
+    },*/
     start_speech() {
       this.stt();
       this.stt_word();
