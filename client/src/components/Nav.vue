@@ -50,6 +50,9 @@ export default {
     openCreator() {
       this.$emit("openCreator");
     },
+    openPractice() {
+      this.$emit("openPractice");
+    },
     toggleNav() {
       this.active = !this.active;
     },

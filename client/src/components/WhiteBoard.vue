@@ -130,6 +130,22 @@ export default {
         this.prevPos.y = pos.y;
       }
     },
+    emitLineByHand(coords){
+      console.log("emitLineByHand in WhiteBoard.vue getting called");
+      if(this.draw && this.iDraw){
+        let pos = coords;
+
+        if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
+          let coords = { prevPos: this.prevPos, currPos: pos };
+          let paintObj = { color: this.activeColor, coords };
+          this.$socket.emit("paint", paintObj);
+          this.drawLine(paintObj);
+        }
+        // New previous pos
+        this.prevPos.x = pos.x;
+        this.prevPos.y = pos.y;
+      }
+    },
     enableDrawing() {
       this.draw = true;
     },
@@ -211,6 +227,11 @@ export default {
     paint(coords) {
       if (coords) {
         this.drawLine(coords);
+      }
+    },
+    handCoords(coords){
+      if(coords){
+        this.emitLineByHand(coords);
       }
     },
     getPainting(lines) {

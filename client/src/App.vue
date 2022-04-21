@@ -9,7 +9,7 @@
       @closeCreator="closeCreator"
     ></room-creator>
     <foot></foot>
-  </div>
+    </div>
 </template>
 <script>
 import Nav from "./components/Nav.vue";
@@ -26,6 +26,7 @@ export default {
     navigation: Nav,
     foot: Footer,
     "room-creator": RoomCreator,
+    "practice-creator": PracticeRoomCreator,
   },
   methods: {
     leaveRoom() {
