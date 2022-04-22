@@ -392,6 +392,13 @@ export default {
         headerAudio.innerText = '🔈';
         recognition.stop();
       };
+      
+      //if error is thrown stop recognition and reset
+      recognition.addEventListener('error', function(event) {
+        console.log('Speech recognition error detected: ' + event.error);
+        recognition.stop();
+        playAndPauseButton.disabled = false;
+      });
 
       recognition.onresult = function(event) {
         var transcript = event.results[0][0].transcript;
