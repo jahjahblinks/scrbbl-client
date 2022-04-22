@@ -209,17 +209,15 @@ export default {
     },
   },
   sockets: {
-    increase_pen_size(getSize) {
+    increase_pen_size() {
       this.increaseLineSize();
-      getSize = this.size;
       //newLineSize = this.size + 5;
       //if(newLineSize < 55)
       //  this.size = newLineSize;
       //  this.increaseLineSize();
     },
-    decrease_pen_size(getSize) {
+    decrease_pen_size() {
      this.decreaseLineSize();
-     getSize = this.size;
      //newLineSize = this.size - 5;
      //if(newLineSize > 0)
      //  this.size = newLineSize;
