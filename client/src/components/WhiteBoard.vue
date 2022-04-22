@@ -81,8 +81,7 @@ export default {
 
       newLineSize = this.size + 25;
       this.size = newLineSize;
-      let size = this.size;
-      this.$socket.emit("update_brush_size", size);
+      
         //this.ctx.lineWidth(this.size);
     },
     decreaseLineSize() //Decrease drawing line size by 5
@@ -93,8 +92,6 @@ export default {
       if(newLineSize > 0) {
         this.size = newLineSize;
       }
-      let size = this.size;
-      this.socket.emit("update_brush_size", size);
         //this.ctx.lineWidth(this.size);
     },
     resetLineSize() //Decrease drawing line size by 5
