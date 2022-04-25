@@ -554,7 +554,7 @@ export default {
       this.stt();
       this.stt_word();
     },
-    /* get_powerups(points) {
+    get_powerups(points) {
       var power_list = ['Extend Time ⏳','Reveal Hint to Guessers 👁️','Double Points ✌️','Reveal Hint 👁️','Remove Hints ❌','Extra 💯 Points'];
       var guesser = [];
       var artist = [];
@@ -575,7 +575,7 @@ export default {
       this.artistUps = artist;
 
       this.guesserUps = guesser;
-    }, */
+    }, 
   },
   computed: {
     sortedUsers() {
