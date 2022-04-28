@@ -56,36 +56,6 @@
 </template>
 
 <script>
-const videoElement = document.getElementsByClassName('input_video')[0];
-videoElement.style.display = "none";
-
-function onResults(results) {
-  if (results.multiHandLandmarks) {
-    for (const landmarks of results.multiHandLandmarks) {
-      console.log(landmarks[8].x + " " + landmarks[8].y);
-    }
-  }
-}
-
-const hands = new Hands({locateFile: (file) => {
-  return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
-}});
-hands.setOptions({
-  maxNumHands: 2,
-  modelComplexity: 1,
-  minDetectionConfidence: 0.5,
-  minTrackingConfidence: 0.5
-});
-hands.onResults(onResults);
-
-const camera = new Camera(videoElement, {
-  onFrame: async () => {
-    await hands.send({image: videoElement});
-  },
-  width: 1280,
-  height: 720
-});
-camera.start();
 export default {
   name: "Whiteboard",
   data() {
@@ -105,6 +75,9 @@ export default {
       ctx: null,
       draw: false,
       size: null, //default value for drawing line size
+      videoElement: null,
+      hands: null,
+      camera: null,
     };
   },
   props: ["iDraw", "started"],
@@ -113,6 +86,26 @@ export default {
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
       this.size = 5;
+      this.videoElement = document.getElementsByClassName('input_video')[0];
+      //this.videoElement.style.display = "none";
+      this.hands = new Hands({locateFile: (file) => {
+        return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+      }});
+      this.hands.setOptions({
+        maxNumHands: 2,
+        modelComplexity: 1,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5
+      });
+      this.hands.onResults(onResults);
+      this.camera = new Camera(videoElement, {
+        onFrame: async () => {
+          await hands.send({image: videoElement});
+        },
+        width: 1280,
+        height: 720
+      });
+      this.camera.start();
     },
     clearBoard() {
       this.$socket.emit("clear");
@@ -187,6 +180,13 @@ export default {
         // New previous pos
         this.prevPos.x = pos.x;
         this.prevPos.y = pos.y;
+      }
+    },
+    onResults(results) {
+      if (results.multiHandLandmarks) {
+        for (const landmarks of results.multiHandLandmarks) {
+          console.log(landmarks[8].x + " " + landmarks[8].y);
+        }
       }
     },
     enableDrawing() {
