@@ -14,6 +14,7 @@
     </div>
     <!-- end hand tracking stuff -->
     <div class="card whiteboard-wrapper">
+      <script> console.log("importing stuff1") </script>
       <canvas
         v-if="iDraw"
         class="whiteboard"
@@ -33,6 +34,7 @@
         width="800"
         :draggable="false"
       ></canvas>
+      <script> console.log("importing stuff2") </script>
       <footer class="card whiteboard-footer" v-if="iDraw">
         <div class="card-content">
           <div class="columns is-multiline is-mobile">
