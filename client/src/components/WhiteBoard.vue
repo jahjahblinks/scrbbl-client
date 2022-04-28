@@ -46,11 +46,6 @@
 </template>
 
 <script>
-import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands";
-import { Camera } from "@mediapipe/camera_utils";
-import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
-console.log("imports");
-
 export default {
   name: "Whiteboard",
   data() {
@@ -80,6 +75,10 @@ export default {
   props: ["iDraw", "started"],
   methods: {
     initBoard() {
+      console.log("imports");
+      import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands";
+      import { Camera } from "@mediapipe/camera_utils";
+      import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
       console.log("init");
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
