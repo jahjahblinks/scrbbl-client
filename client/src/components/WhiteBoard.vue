@@ -1,5 +1,17 @@
 <template>
   <div class="column is-6">
+    <!-- begin hand tracking stuff -->
+    <head>
+      <meta charset="utf-8">
+      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    </head>
+    <div class="container">
+      <video class="input_video"></video>
+    </div>
+    <!-- end hand tracking stuff -->
     <div class="card whiteboard-wrapper">
       <canvas
         v-if="iDraw"
@@ -44,6 +56,36 @@
 </template>
 
 <script>
+const videoElement = document.getElementsByClassName('input_video')[0];
+videoElement.style.display = "none";
+
+function onResults(results) {
+  if (results.multiHandLandmarks) {
+    for (const landmarks of results.multiHandLandmarks) {
+      console.log(landmarks[8].x + " " + landmarks[8].y);
+    }
+  }
+}
+
+const hands = new Hands({locateFile: (file) => {
+  return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+}});
+hands.setOptions({
+  maxNumHands: 2,
+  modelComplexity: 1,
+  minDetectionConfidence: 0.5,
+  minTrackingConfidence: 0.5
+});
+hands.onResults(onResults);
+
+const camera = new Camera(videoElement, {
+  onFrame: async () => {
+    await hands.send({image: videoElement});
+  },
+  width: 1280,
+  height: 720
+});
+camera.start();
 export default {
   name: "Whiteboard",
   data() {
