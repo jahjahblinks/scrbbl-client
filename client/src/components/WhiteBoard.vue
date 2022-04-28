@@ -3,7 +3,6 @@
     <!-- begin hand tracking stuff -->
     <head>
       <meta charset="utf-8">
-      <script> console.log("importing stuff") </script>
       <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
@@ -14,7 +13,6 @@
     </div>
     <!-- end hand tracking stuff -->
     <div class="card whiteboard-wrapper">
-      <script> console.log("importing stuff1") </script>
       <canvas
         v-if="iDraw"
         class="whiteboard"
@@ -34,7 +32,6 @@
         width="800"
         :draggable="false"
       ></canvas>
-      <script> console.log("importing stuff2") </script>
       <footer class="card whiteboard-footer" v-if="iDraw">
         <div class="card-content">
           <div class="columns is-multiline is-mobile">
@@ -86,6 +83,7 @@ export default {
   props: ["iDraw", "started"],
   methods: {
     initBoard() {
+      console.log("init");
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
       this.size = 5;
