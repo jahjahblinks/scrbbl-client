@@ -1,17 +1,6 @@
 <template>
   <div class="column is-6">
-    <!-- begin hand tracking stuff -->
-    <head>
-      <meta charset="utf-8">
-      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
-    </head>
-    <div class="container">
-      <video class="input_video"></video>
-    </div>
-    <!-- end hand tracking stuff -->
+    <video ref="input_video" width="100%" height="100%"></video>
     <div class="card whiteboard-wrapper">
       <canvas
         v-if="iDraw"
@@ -46,6 +35,7 @@
           </div>
         </div>
         <div class="card-footer">
+          <script>console.log("test")</script>
           <a href="#" class="card-footer-item" @click.prevent="clearBoard"
             >Clear</a
           >
@@ -56,6 +46,10 @@
 </template>
 
 <script>
+import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands";
+import { Camera } from "@mediapipe/camera_utils";
+import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
+
 export default {
   name: "Whiteboard",
   data() {
@@ -75,10 +69,12 @@ export default {
       ctx: null,
       draw: false,
       size: null, //default value for drawing line size
-      videoElement: null,
-      hands: null,
-      camera: null,
     };
+  },
+  computed: {
+    inputVideo() {
+      return this.$refs.input_video;
+    },
   },
   props: ["iDraw", "started"],
   methods: {
@@ -87,26 +83,24 @@ export default {
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
       this.size = 5;
-      this.videoElement = document.getElementsByClassName('input_video')[0];
-      //this.videoElement.style.display = "none";
-      this.hands = new Hands({locateFile: (file) => {
-        return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
-      }});
-      this.hands.setOptions({
-        maxNumHands: 2,
-        modelComplexity: 1,
-        minDetectionConfidence: 0.5,
-        minTrackingConfidence: 0.5
-      });
-      this.hands.onResults(onResults);
-      this.camera = new Camera(videoElement, {
-        onFrame: async () => {
-          await hands.send({image: videoElement});
+      const hands = new Hands({
+        locateFile: (file) => {
+          return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
         },
-        width: 1280,
-        height: 720
       });
-      this.camera.start();
+      hands.setOptions({
+        maxNumHands: 1,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5,
+      });
+      hands.onResults(this.onResults);
+
+      const camera = new Camera(this.inputVideo, {
+        onFrame: async () => {
+          await hands.send({ image: this.inputVideo });
+        },
+      });
+      camera.start();
     },
     clearBoard() {
       this.$socket.emit("clear");
@@ -184,9 +178,33 @@ export default {
       }
     },
     onResults(results) {
+      this.width = results.image.width;
+      this.height = results.image.height;
+      this.ctx.save();
+      this.ctx.clearRect(0, 0, results.image.width, results.image.height);
+      this.ctx.drawImage(
+        results.image,
+        0,
+        0,
+        results.image.width,
+        results.image.height
+      );
+      this.findHands(results);
+      this.ctx.restore();
+    },
+    findHands(results, draw = true) {
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
-          console.log(landmarks[8].x + " " + landmarks[8].y);
+          drawConnectors(this.ctx, landmarks, HAND_CONNECTIONS, {
+            color: "#00FF00",
+            lineWidth: 5,
+          });
+          if (draw) {
+            drawLandmarks(this.ctx, landmarks, {
+              color: "#FF0000",
+              lineWidth: 2,
+            });
+          }
         }
       }
     },
