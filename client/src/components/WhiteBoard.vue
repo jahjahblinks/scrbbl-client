@@ -8,6 +8,7 @@
         ref="canvas"
         height="600"
         width="800"
+        style="position: absolute; left: 0; top: 0; z-index: 0;"
         :draggable="false"
         @mousemove="emitLine"
         @touchmove="getTouchPosition"
@@ -19,6 +20,14 @@
         ref="canvas"
         height="600"
         width="800"
+        :draggable="false"
+      ></canvas>
+      <canvas
+        v-if="iDraw"
+        class="overlay"
+        height="600"
+        width="800"
+        style="position: absolute; left: 0; top: 0; z-index: 0;"
         :draggable="false"
       ></canvas>
       <footer class="card whiteboard-footer" v-if="iDraw">
@@ -108,8 +117,15 @@ export default {
       camera.start();
     },
     onResults(results) {
+      var canvas = document.getElementsByClassName("overlay");
+      var ctx = canvas.getContext("2d");
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
+          let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};  
+          ctx.beginPath();
+          ctx.arc(scaledPos.x, scaledPos.y, 25, 0, 2 * Math.PI);
+          ctx.stroke();
           if(landmarks[8].x > 0.75 || landmarks[8].x < 0.25 || landmarks[8].y > 0.75 || landmarks[8].y < 0.25){
             this.prevPos.x = null;
             this.prevPos.y = null;
@@ -121,7 +137,7 @@ export default {
             break;
           }
 
-          let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
+          
           if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
             let coords = { prevPos: this.prevPos, currPos: scaledPos };
             let paintObj = { color: this.activeColor, coords };
