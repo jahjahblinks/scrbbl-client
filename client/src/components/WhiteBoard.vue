@@ -91,7 +91,7 @@ export default {
       }});
 
       hands.setOptions({
-        maxNumHands: 2,
+        maxNumHands: 1,
         modelComplexity: 1,
         minDetectionConfidence: 0.5,
         minTrackingConfidence: 0.5
@@ -110,17 +110,20 @@ export default {
     onResults(results) {
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
-          let pos = { x: parseInt(600*landmarks[8].x, 10), y: parseInt(600*landmarks[8].y, 10)};
+          if(landmarks[8].x > 0.75 || landmarks[8].x < 0.25 || landmarks[8].y > 0.75 || landmarks[8].y < 0.25){
+            break;
+          }
+          let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
           if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
-            let coords = { prevPos: this.prevPos, currPos: pos };
+            let coords = { prevPos: this.prevPos, currPos: scaledPos };
             let paintObj = { color: this.activeColor, coords };
             this.$socket.emit("paint", paintObj);
             this.drawLine(paintObj);
           }
           // New previous pos
-          this.prevPos.x = pos.x;
-          this.prevPos.y = pos.y;
-          console.log(landmarks[8].x + " " + landmarks[8].y);
+          this.prevPos.x = scaledPos.x;
+          this.prevPos.y = scaledPos.y;
+          console.log(scaledPos.x + " " + scaledPos.y);
         }
       }
     },
