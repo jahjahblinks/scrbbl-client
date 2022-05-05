@@ -123,15 +123,15 @@ export default {
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
           let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};  
-          ctx.beginPath();
-          ctx.arc(scaledPos.x, scaledPos.y, 25, 0, 2 * Math.PI);
-          ctx.stroke();
+          this.ctx.beginPath();
+          this.ctx.arc(scaledPos.x, scaledPos.y, 25, 0, 2 * Math.PI);
+          this.ctx.stroke();
           if(landmarks[8].x > 0.75 || landmarks[8].x < 0.25 || landmarks[8].y > 0.75 || landmarks[8].y < 0.25){
             this.prevPos.x = null;
             this.prevPos.y = null;
             break;
           }
-          if(Math.sqrt((landmarks[8].x - landmarks[4].x)**2 + (landmarks[8].y - landmarks[4].y)**2) > 0.1){
+          if(Math.sqrt((landmarks[8].x - landmarks[4].x)**2 + (landmarks[8].y - landmarks[4].y)**2) > 0.05){
             this.prevPos.x = null;
             this.prevPos.y = null;
             break;
