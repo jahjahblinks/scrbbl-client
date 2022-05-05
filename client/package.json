@@ -19,7 +19,10 @@
     "vue-socket.io": "^3.0.10",
     "vue-sweetalert2": "^1.6.4",
     "vue-switches": "^2.0.1",
-    "@vue/cli-service": "^3.3.0"
+    "@vue/cli-service": "^3.3.0",
+    "@mediapipe/camera_utils": "0.3.1640029074",
+    "@mediapipe/hands": "0.4.1646424915",
+    "@mediapipe/drawing_utils": "0.3.1620248257"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",
