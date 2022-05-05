@@ -4,6 +4,7 @@ import VueSweetAlert from "vue-sweetalert2";
 import SocketIO from 'socket.io-client'
 import router from "./router.js";
 import App from "./App.vue";
+import PracticeApp from "./PracticeApp.vue"
 import Colors from "./styles/variables.scss";
 import "./registerServiceWorker";
 import LoadScript from "vue-plugin-load-script";
