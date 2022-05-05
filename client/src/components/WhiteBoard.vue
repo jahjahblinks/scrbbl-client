@@ -50,6 +50,13 @@ console.log("imports");
 import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands";
 import { Camera } from "@mediapipe/camera_utils";
 import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
+function onResults(results){
+  if (results.multiHandLandmarks) {
+    for (const landmarks of results.multiHandLandmarks) {
+      console.log(landmarks[8].x + " " + landmarks[8].y);
+    }
+  }
+};
 export default {
   name: "Whiteboard",
   data() {
