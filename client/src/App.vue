@@ -35,6 +35,9 @@ export default {
     openCreator() {
       this.$data.isModalVisible = true;
     },
+    openPracticeCreator() {
+      this.$data.isModalVisible = true;
+    },
     closeCreator() {
       this.$data.isModalVisible = false;
     },
