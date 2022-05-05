@@ -47,9 +47,9 @@
 
 <script>
 console.log("imports");
-    import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands";
-    import { Camera } from "@mediapipe/camera_utils";
-    import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
+import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands";
+import { Camera } from "@mediapipe/camera_utils";
+import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
 export default {
   name: "Whiteboard",
   data() {
@@ -83,22 +83,28 @@ export default {
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
       this.size = 5;
-      const hands = new Hands({
-        locateFile: (file) => {
-          return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
-        },
-      });
-      hands.setOptions({
-        maxNumHands: 1,
-        minDetectionConfidence: 0.5,
-        minTrackingConfidence: 0.5,
-      });
-      hands.onResults(this.onResults);
 
-      const camera = new Camera(this.inputVideo, {
+      const videoElement = document.getElementsByClassName('input_video')[0];
+      videoElement.style.display = "none";
+
+      const hands = new Hands({locateFile: (file) => {
+        return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+      }});
+
+      hands.setOptions({
+        maxNumHands: 2,
+        modelComplexity: 1,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5
+      });
+      hands.onResults(onResults);
+
+      const camera = new Camera(videoElement, {
         onFrame: async () => {
-          await hands.send({ image: this.inputVideo });
+          await hands.send({image: videoElement});
         },
+        width: 1280,
+        height: 720
       });
       camera.start();
     },
@@ -178,6 +184,12 @@ export default {
       }
     },
     onResults(results) {
+      if (results.multiHandLandmarks) {
+        for (const landmarks of results.multiHandLandmarks) {
+          console.log(landmarks[8].x + " " + landmarks[8].y);
+        }
+      }
+      /*
       this.width = results.image.width;
       this.height = results.image.height;
       this.ctx.save();
@@ -190,9 +202,9 @@ export default {
         results.image.height
       );
       this.findHands(results);
-      this.ctx.restore();
+      this.ctx.restore();*/
     },
-    findHands(results, draw = true) {
+    /*findHands(results, draw = true) {
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
           drawConnectors(this.ctx, landmarks, HAND_CONNECTIONS, {
@@ -207,7 +219,7 @@ export default {
           }
         }
       }
-    },
+    },*/
     enableDrawing() {
       this.draw = true;
     },
