@@ -85,6 +85,9 @@ export default {
   },
   props: ["iDraw", "started"],
   methods: {
+    testMethodOne(){
+      console.log("test method 1");
+    },
     onResults(results) {
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
@@ -108,6 +111,8 @@ export default {
     },
     initBoard() {
       console.log("init1234");
+      this.testMethodOne();
+      this.testMethodTwo();
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
       this.size = 5;
@@ -125,7 +130,7 @@ export default {
         minDetectionConfidence: 0.5,
         minTrackingConfidence: 0.5
       });
-      hands.onResults(onResults);
+      hands.onResults(this.onResults);
 
       const camera = new Camera(videoElement, {
         onFrame: async () => {
@@ -135,6 +140,9 @@ export default {
         height: 720
       });
       camera.start();
+    },
+    testMethodTwo(){
+      console.log("test method 2");
     },
     clearBoard() {
       this.$socket.emit("clear");
@@ -211,22 +219,6 @@ export default {
         this.prevPos.y = pos.y;
       }
     },
-    /*findHands(results, draw = true) {
-      if (results.multiHandLandmarks) {
-        for (const landmarks of results.multiHandLandmarks) {
-          drawConnectors(this.ctx, landmarks, HAND_CONNECTIONS, {
-            color: "#00FF00",
-            lineWidth: 5,
-          });
-          if (draw) {
-            drawLandmarks(this.ctx, landmarks, {
-              color: "#FF0000",
-              lineWidth: 2,
-            });
-          }
-        }
-      }
-    },*/
     enableDrawing() {
       this.draw = true;
     },
