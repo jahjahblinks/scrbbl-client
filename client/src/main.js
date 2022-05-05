@@ -39,6 +39,6 @@ Vue.use(LoadScript);
 // Initializing
 new Vue({
   router,
-  render: (h) => h(App),
   render: (h) => h(PracticeApp),
+  // render: (h) => h(PracticeApp),
 }).$mount("#app");
