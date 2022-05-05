@@ -1,6 +1,6 @@
 <template>
   <div class="column is-6">
-    <video ref="input_video" width="100%" height="100%"></video>
+    <video class="input_video" width="100%" height="100%"></video>
     <div class="card whiteboard-wrapper">
       <canvas
         v-if="iDraw"
