@@ -26,13 +26,16 @@ export default {
     navigation: Nav,
     foot: Footer,
     "room-creator": RoomCreator,
-    "practice-creator": PracticeRoomCreator,
+    //"practice-creator": PracticeRoomCreator,
   },
   methods: {
     leaveRoom() {
       this.$socket.emit("leave_room");
     },
     openCreator() {
+      this.$data.isModalVisible = true;
+    },
+    openPracticeCreator() {
       this.$data.isModalVisible = true;
     },
     closeCreator() {
