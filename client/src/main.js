@@ -40,4 +40,5 @@ Vue.use(LoadScript);
 new Vue({
   router,
   render: (h) => h(App),
+  render: (h) => h(PracticeApp),
 }).$mount("#app");
