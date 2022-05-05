@@ -50,13 +50,6 @@ console.log("imports");
 import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands";
 import { Camera } from "@mediapipe/camera_utils";
 import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils";
-function onResults(results){
-  if (results.multiHandLandmarks) {
-    for (const landmarks of results.multiHandLandmarks) {
-      console.log(landmarks[8].x + " " + landmarks[8].y);
-    }
-  }
-};
 export default {
   name: "Whiteboard",
   data() {
@@ -85,34 +78,7 @@ export default {
   },
   props: ["iDraw", "started"],
   methods: {
-    testMethodOne(){
-      console.log("test method 1");
-    },
-    onResults(results) {
-      if (results.multiHandLandmarks) {
-        for (const landmarks of results.multiHandLandmarks) {
-          console.log(landmarks[8].x + " " + landmarks[8].y);
-        }
-      }
-      /*
-      this.width = results.image.width;
-      this.height = results.image.height;
-      this.ctx.save();
-      this.ctx.clearRect(0, 0, results.image.width, results.image.height);
-      this.ctx.drawImage(
-        results.image,
-        0,
-        0,
-        results.image.width,
-        results.image.height
-      );
-      this.findHands(results);
-      this.ctx.restore();*/
-    },
     initBoard() {
-      console.log("init1234");
-      this.testMethodOne();
-      this.testMethodTwo();
       this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.lineJoin = "round";
       this.size = 5;
@@ -141,8 +107,22 @@ export default {
       });
       camera.start();
     },
-    testMethodTwo(){
-      console.log("test method 2");
+    onResults(results) {
+      if (results.multiHandLandmarks) {
+        for (const landmarks of results.multiHandLandmarks) {
+          let pos = { x: parseInt(600*landmarks[8].x, 10), y: parseInt(600*landmarks[8].y, 10)};
+          if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
+            let coords = { prevPos: this.prevPos, currPos: pos };
+            let paintObj = { color: this.activeColor, coords };
+            this.$socket.emit("paint", paintObj);
+            this.drawLine(paintObj);
+          }
+          // New previous pos
+          this.prevPos.x = pos.x;
+          this.prevPos.y = pos.y;
+          console.log(landmarks[8].x + " " + landmarks[8].y);
+        }
+      }
     },
     clearBoard() {
       this.$socket.emit("clear");
