@@ -58,9 +58,9 @@ export default {
     },
     openPractice() {
       this.$emit("openPracticeCreator")
-      this.$router.push({
-        path: 'practice'
-      })
+      //this.$router.push({
+        //path: 'practice'
+      //})
     }
   },
   // mounted() {
