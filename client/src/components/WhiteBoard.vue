@@ -78,6 +78,27 @@ export default {
   },
   props: ["iDraw", "started"],
   methods: {
+    onResults(results) {
+      if (results.multiHandLandmarks) {
+        for (const landmarks of results.multiHandLandmarks) {
+          console.log(landmarks[8].x + " " + landmarks[8].y);
+        }
+      }
+      /*
+      this.width = results.image.width;
+      this.height = results.image.height;
+      this.ctx.save();
+      this.ctx.clearRect(0, 0, results.image.width, results.image.height);
+      this.ctx.drawImage(
+        results.image,
+        0,
+        0,
+        results.image.width,
+        results.image.height
+      );
+      this.findHands(results);
+      this.ctx.restore();*/
+    },
     initBoard() {
       console.log("init1234");
       this.ctx = this.$refs.canvas.getContext("2d");
@@ -182,27 +203,6 @@ export default {
         this.prevPos.x = pos.x;
         this.prevPos.y = pos.y;
       }
-    },
-    onResults(results) {
-      if (results.multiHandLandmarks) {
-        for (const landmarks of results.multiHandLandmarks) {
-          console.log(landmarks[8].x + " " + landmarks[8].y);
-        }
-      }
-      /*
-      this.width = results.image.width;
-      this.height = results.image.height;
-      this.ctx.save();
-      this.ctx.clearRect(0, 0, results.image.width, results.image.height);
-      this.ctx.drawImage(
-        results.image,
-        0,
-        0,
-        results.image.width,
-        results.image.height
-      );
-      this.findHands(results);
-      this.ctx.restore();*/
     },
     /*findHands(results, draw = true) {
       if (results.multiHandLandmarks) {
