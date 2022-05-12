@@ -1,51 +1,10 @@
 <template>
-  <div class="container">
-    <section class="hero">
-      <div class="hero-body room-header">
+
+<!-- <section class="hero is-small">
+    <div class="hero-body room-header" >
         <div class="container">
-          <h1 class="title room">Tutorial</h1>
-          <h2 class="subtitle room-title">
-            Learn how to play scrbbl!
-          </h2>
+            <h1 class="title room">Tutorial</h1>
         </div>
-      </div>
-    </section>
-    <section class="section">
-      <iframe class="hero is-fullwidth" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
-    </section>
-  </div>
-</template>
-
-<script>
-export default {
-  name: "About",
-  data() {
-    return { rooms: [] };
-  },
-  methods: {
-    getRooms() {
-      this.$socket.emit("get_rooms");
-    }
-  },
-  sockets: {
-    receive_rooms(rooms) {
-      this.$data.rooms = rooms;
-      //console.log(rooms);
-    }
-  },
-  mounted() {
-    this.getRooms();
-   // console.log(this.$socket);
-  }
-};
-</script>
-
-<style lang="scss" scoped>
-.room-title {
-  padding-top: 1rem;
-}
-
-.room-header {
-  padding-bottom: 0rem;
-}
-</style>
+    </div>
+    <iframe style="height:300px; width:700px" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
+</section>
