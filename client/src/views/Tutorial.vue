@@ -1,6 +1,6 @@
 <template>
 
-<div class="container">
+<div class="section">
     <section class="hero">
       <div class="hero-body room-header">
         <div class="container">
