@@ -67,9 +67,11 @@ export default {
     },
     openTutorial() {
       // this.$emit("openPracticeCreator")
-      this.$router.push({
-      path: 'tutorial'
-      })
+      //this.$router.push({
+      //path: 'tutorial'
+      //})
+      location.href = 'public/static/tutorial.html';
+
     }
   },
   // mounted() {
