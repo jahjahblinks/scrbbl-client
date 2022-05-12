@@ -30,7 +30,7 @@ export default new Router({
       name: "room",
       component: () =>
         import("./views/Room.vue")
-    }
+    },
     {
       path: "/tutorial",
       name: "tutorial",
