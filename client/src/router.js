@@ -35,7 +35,7 @@ export default new Router({
       path: "/tutorial",
       name: "tutorial",
       component: () =>
-        import("./views/Tutorial.html")
+        import("./views/Tutorial.vue")
     }
   ]
 });
