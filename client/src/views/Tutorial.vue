@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <section class="hero" style="margin-bottom: 20px;">
+    <section class="hero" style="margin-bottom:0;">
       <div class="hero-body room-header">
         <div class="container">
           <h1 class="title room">Tutorial</h1>
