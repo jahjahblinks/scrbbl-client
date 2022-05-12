@@ -70,7 +70,7 @@ export default {
       //this.$router.push({
       //path: 'tutorial'
       //})
-      location.href = 'public/static/tutorial.html';
+      location.href = 'tutorial.html';
 
     }
   },
