@@ -31,5 +31,11 @@ export default new Router({
       component: () =>
         import("./views/Room.vue")
     }
+    {
+      path: "/tutorial",
+      name: "tutorial",
+      component: () =>
+        import("./views/Tutorial.vue")
+    }
   ]
 });
