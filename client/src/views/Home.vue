@@ -37,6 +37,9 @@
         <button class="button is-info is-large " @click="openPractice">
           <strong>Practice!</strong>
         </button>
+        <button class="button is-warning is-large " @click="openTutorial">
+          <strong>Tutorial</strong>
+        </button>
       </div>
 
     </section>
@@ -60,6 +63,12 @@ export default {
       // this.$emit("openPracticeCreator")
       this.$router.push({
       path: 'practice'
+      })
+    },
+    openTutorial() {
+      // this.$emit("openPracticeCreator")
+      this.$router.push({
+      path: 'tutorial'
       })
     }
   },
