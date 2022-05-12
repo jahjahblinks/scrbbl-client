@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <section class="hero" style="margin-bottom:0;">
-      <div class="hero-body room-header">
-        <div class="container">
+      <div class="hero-body room-header" style="margin-bottom:0;">
+        <div class="container" style="margin-bottom:0;">
           <h1 class="title room">Tutorial</h1>
           <h2 class="subtitle room-title">
-            Learn how to play scrbbl! updated
+            Learn how to play scrbbl!
           </h2>
         </div>
       </div>
