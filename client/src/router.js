@@ -17,7 +17,7 @@ export default new Router({
       component: () =>
         import("./views/Rooms.vue")
     },
-
+// link Practice.vue file to /practice path
     {
       path: "/practice",
       name: "practice",

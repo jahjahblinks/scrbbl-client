@@ -7,6 +7,8 @@ script: [
 ]
 }-->
 
+<!--this file is a copy of room.vue-->
+
 <template>
   <div class="section-xs container">
     <div class="columns is-multiline">
