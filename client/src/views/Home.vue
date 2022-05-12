@@ -35,10 +35,10 @@
         </button>
         &nbsp;
         <button class="button is-info is-large " @click="openPractice">
-          <strong>Practice!</strong>
+          <strong>Practice</strong>
         </button>
         &nbsp;
-        <button class="button is-link is-large " @click="openTutorial">
+        <button class="button is-red is-large " @click="openTutorial">
           <strong>Tutorial</strong>
         </button>
       </div>
