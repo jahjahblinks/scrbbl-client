@@ -114,8 +114,6 @@ export default {
       camera.start();
     },
     onResults(results) {
-      
-      
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
           let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
