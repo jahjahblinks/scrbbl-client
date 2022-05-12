@@ -64,6 +64,12 @@ export default {
       this.$router.push({
       path: 'practice'
       })
+    },
+    openTutorial() {
+      // this.$emit("openPracticeCreator")
+      this.$router.push({
+      path: 'tutorial'
+      })
     }
   },
   // mounted() {
