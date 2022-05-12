@@ -1,19 +1,51 @@
 <template>
-
-<!-- <section class="hero is-small">
-    <div class="hero-body room-header" >
+  <div class="container">
+    <section class="hero">
+      <div class="hero-body room-header">
         <div class="container">
-            <h1 class="title room">Tutorial</h1>
+          <h1 class="title room">Tutorial</h1>
+          <h2 class="subtitle room-title">
+            Learn how to play scrbbl!
+          </h2>
         </div>
-    </div>
-    <iframe style="height:300px; width:700px" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
-</section>
-
-<section class="hero is-large">
-    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
-</section> -->
-
-<section class="section is-large">
-    <iframe src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
-  </section>
+      </div>
+    </section>
+    <section class="section">
+      <iframe class="hero is-fullwidth" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
+    </section>
+  </div>
 </template>
+
+<script>
+export default {
+  name: "About",
+  data() {
+    return { rooms: [] };
+  },
+  methods: {
+    getRooms() {
+      this.$socket.emit("get_rooms");
+    }
+  },
+  sockets: {
+    receive_rooms(rooms) {
+      this.$data.rooms = rooms;
+      //console.log(rooms);
+    }
+  },
+  mounted() {
+    this.getRooms();
+   // console.log(this.$socket);
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.room-title {
+  padding-top: 1rem;
+}
+
+.room-header {
+  padding-bottom: 0rem;
+}
+</style>
