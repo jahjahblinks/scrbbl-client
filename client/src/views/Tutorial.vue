@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="height:100%;width:100%">
     <section class="hero">
       <div class="hero-body room-header">
         <div class="container">
@@ -10,7 +10,7 @@
         </div>
       </div>
     </section>
-    <section class="section" style="height:100%;width:100%">
+    <section class="section">
       <iframe class="hero is-fullwidth" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
     </section>
   </div>
