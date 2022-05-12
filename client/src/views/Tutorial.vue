@@ -5,7 +5,7 @@
         <div class="container">
           <h1 class="title room">Tutorial</h1>
           <h2 class="subtitle room-title">
-            Learn how to play scrbbl! updated
+            Learn how to play scrbbl!
           </h2>
         </div>
       </div>
