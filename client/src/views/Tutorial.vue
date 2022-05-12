@@ -15,36 +15,3 @@
     </section>
   </div>
 </template>
-
-<script>
-export default {
-  name: "About",
-  data() {
-    return { rooms: [] };
-  },
-  methods: {
-    getRooms() {
-      this.$socket.emit("get_rooms");
-    }
-  },
-  sockets: {
-    receive_rooms(rooms) {
-      this.$data.rooms = rooms;
-      //console.log(rooms);
-    }
-  },
-  mounted() {
-    this.getRooms();
-   // console.log(this.$socket);
-  }
-};
-</script>
-
-<style lang="scss" scoped>
-.room-title {
-  padding-top: 1rem;
-}
-.room-header {
-  padding-bottom: 0rem;
-}
-</style>

@@ -66,11 +66,10 @@ export default {
       })
     },
     openTutorial() {
-      // this.$emit("openPracticeCreator")
-      //this.$router.push({
-      //path: 'tutorial'
-      //})
-      location.href = 'tutorial.html';
+      this.$router.push({
+      path: 'tutorial'
+      })
+      //location.href = 'tutorial.html';
 
     }
   },
