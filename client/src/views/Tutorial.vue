@@ -10,7 +10,7 @@
         </div>
       </div>
     </section>
-    <section class="section" style="margin-top:0px;">
+    <section class="section" style="margin-top:-20px;">
       <iframe  style="height:60vh;width:80vw;" class="hero is-fullwidth" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
     </section>
   </div>
