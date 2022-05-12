@@ -114,15 +114,14 @@ export default {
       camera.start();
     },
     onResults(results) {
-      let canvas = document.getElementsByClassName("overlay")[0];
-      let ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
       
       if (results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
           let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
-          
-          
+          let canvas = document.getElementsByClassName("overlay")[0];
+          let ctx = canvas.getContext("2d");
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.beginPath();
           ctx.strokeStyle = "#000";
           ctx.arc(scaledPos.x, scaledPos.y, 25, 0, 2 * Math.PI);
@@ -155,6 +154,9 @@ export default {
       else{
         this.prevPos.x = null;
         this.prevPos.y = null;
+        let canvas = document.getElementsByClassName("overlay")[0];
+        let ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
     },
     clearBoard() {
