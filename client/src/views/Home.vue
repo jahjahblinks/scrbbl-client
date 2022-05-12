@@ -57,10 +57,10 @@ export default {
       })
     },
     openPractice() {
-      this.$emit("openPracticeCreator")
-      //this.$router.push({
-        //path: 'practice'
-      //})
+      // this.$emit("openPracticeCreator")
+      this.$router.push({
+      path: 'practice'
+      })
     }
   },
   // mounted() {
