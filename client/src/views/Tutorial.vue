@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <section class="hero" style="margin-bottom:0;">
-      <div class="hero-body room-header" style="margin-bottom:0;">
-        <div class="container" style="margin-bottom:0;">
+    <section class="hero">
+      <div class="hero-body room-header">
+        <div class="container">
           <h1 class="title room">Tutorial</h1>
           <h2 class="subtitle room-title">
-            Learn how to play scrbbl!
+            Learn how to play scrbbl! updated
           </h2>
         </div>
       </div>
     </section>
-    <section class="section">
-      <iframe  style="height:60vh;width:80vw;margin-top:0;" class="hero is-fullwidth" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
+    <section class="section" style="margin-top:0px;">
+      <iframe  style="height:60vh;width:80vw;" class="hero is-fullwidth" src="https://docs.google.com/document/d/e/2PACX-1vTD8WiNV5gDQHIPw5IKnd9AXqcw1xUFODQWVi1V5o4OasCsYNLPy2HvzrxTqy5iNe0UkWG8A3l9Yfdj/pub?embedded=true"></iframe>
     </section>
   </div>
 </template>
