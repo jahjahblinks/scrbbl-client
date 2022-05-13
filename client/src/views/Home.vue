@@ -38,7 +38,7 @@
           <strong>Practice</strong>
         </button>
         &nbsp;
-        <button class="button is-$red is-large " @click="openTutorial">
+        <button class="button .is-$red is-large " @click="openTutorial">
           <strong>Tutorial</strong>
         </button>
       </div>
