@@ -461,6 +461,10 @@ export default {
 
       recognition.start();
     },
+    stt_button_pressed() {
+      var playAndPauseButton = document.getElementById("playAndPause");
+      return playAndPauseButton.disabled;
+    }
   },
   sockets: {
     receive_users(users) {
@@ -551,8 +555,10 @@ export default {
       this.Whiteboard.decreaseLineSize();
     },*/
     start_speech() {
-      this.stt();
-      this.stt_word();
+      if(!this.stt_button_pressed) {
+        this.stt();
+        this.stt_word();
+      }
     },
     get_powerups(points) {
       var power_list = ['Extend Time ⏳','Reveal Hint to Guessers 👁️','Double Points ✌️','Reveal Hint 👁️','Remove Hints ❌','Extra 💯 Points'];
