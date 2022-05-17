@@ -555,7 +555,7 @@ export default {
       this.Whiteboard.decreaseLineSize();
     },*/
     start_speech() {
-      if(!speechActive) {
+      if(speechActive == false) {
         this.stt();
         this.stt_word();
       }
