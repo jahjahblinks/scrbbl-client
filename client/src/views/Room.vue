@@ -273,6 +273,7 @@ export default {
       artistUps: [],
       size: 5,
       names: "",
+      speechActive = false,
     };
   },
   components: { Whiteboard },
@@ -378,6 +379,7 @@ export default {
       recognition.onstart = function() {
         console.log("recordButton clicked");
         console.log("Begin Speech Recognition");
+        speechActive = true;
         playAndPauseButton.disabled = true;
         playAndPauseButton.innerText = 'Wait';
         playAndPauseButton.className = 'button is-danger is-borderless';
@@ -391,6 +393,7 @@ export default {
         playAndPauseButton.className = 'button is-primary is-borderless';
         headerAudio.innerText = '🔈';
         recognition.stop();
+        speechActive = false;
       };
       
       //if error is thrown stop recognition and reset
@@ -398,6 +401,7 @@ export default {
         console.log('Speech recognition error detected: ' + event.error);
         recognition.stop();
         playAndPauseButton.disabled = false;
+        speechActive = false;
       });
 
       recognition.onresult = function(event) {
@@ -461,10 +465,6 @@ export default {
 
       recognition.start();
     },
-    stt_button_pressed() {
-      var playAndPauseButton = document.getElementById("playAndPause");
-      return playAndPauseButton.disabled;
-    }
   },
   sockets: {
     receive_users(users) {
@@ -555,7 +555,7 @@ export default {
       this.Whiteboard.decreaseLineSize();
     },*/
     start_speech() {
-      if(!this.stt_button_pressed) {
+      if(!speechActive) {
         this.stt();
         this.stt_word();
       }
