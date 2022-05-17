@@ -273,7 +273,7 @@ export default {
       artistUps: [],
       size: 5,
       names: "",
-      speechActive = false,
+      speechActive: false,
     };
   },
   components: { Whiteboard },
