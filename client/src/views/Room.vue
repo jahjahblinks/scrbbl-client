@@ -379,7 +379,6 @@ export default {
       recognition.onstart = function() {
         console.log("recordButton clicked");
         console.log("Begin Speech Recognition");
-        speechActive = true;
         playAndPauseButton.disabled = true;
         playAndPauseButton.innerText = 'Wait';
         playAndPauseButton.className = 'button is-danger is-borderless';
@@ -393,7 +392,6 @@ export default {
         playAndPauseButton.className = 'button is-primary is-borderless';
         headerAudio.innerText = '🔈';
         recognition.stop();
-        speechActive = false;
       };
       
       //if error is thrown stop recognition and reset
@@ -401,7 +399,6 @@ export default {
         console.log('Speech recognition error detected: ' + event.error);
         recognition.stop();
         playAndPauseButton.disabled = false;
-        speechActive = false;
       });
 
       recognition.onresult = function(event) {
@@ -415,6 +412,7 @@ export default {
       };
 
       recognition.start();
+      console.log("disabled: " + playAndPauseButton.disabled);
     },
     stt_word() {
       var notes = document.getElementById("note");
