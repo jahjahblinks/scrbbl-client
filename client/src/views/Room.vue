@@ -553,7 +553,7 @@ export default {
       this.Whiteboard.decreaseLineSize();
     },*/
     start_speech() {
-      if(speechActive == false) {
+      if(true) {
         this.stt();
         this.stt_word();
       }
