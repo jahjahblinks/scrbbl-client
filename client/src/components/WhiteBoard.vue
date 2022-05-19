@@ -26,7 +26,10 @@
         class="overlay"
         height="600"
         width="800"
-        style="position: absolute; left: 0; top: 0; z-index: 0;"
+        style="position: absolute; left: -50; top: 0; z-index: 0;"
+        @mousemove="emitLine"
+        @touchmove="getTouchPosition"
+        @mouseleave="leaveCanvas"
         :draggable="false"
       ></canvas>
       <footer class="card whiteboard-footer" v-if="iDraw">
@@ -115,13 +118,16 @@ export default {
     },
     onResults(results) {
       if (results.multiHandLandmarks) {
+        console.log("hand in frame");
         for (const landmarks of results.multiHandLandmarks) {
+          console.log("lewp");
           let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
           let canvas = document.getElementsByClassName("overlay")[0];
           let ctx = canvas.getContext("2d");
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.beginPath();
           ctx.strokeStyle = "#000";
+          ctx.globalAlpha = 0.5;
           ctx.arc(scaledPos.x, scaledPos.y, 25, 0, 2 * Math.PI);
           ctx.stroke();
           
@@ -150,6 +156,7 @@ export default {
         }
       }
       else{
+        console.log("hand not in frame");
         this.prevPos.x = null;
         this.prevPos.y = null;
         let canvas = document.getElementsByClassName("overlay")[0];

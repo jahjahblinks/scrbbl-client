@@ -205,8 +205,11 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt();
-                      stt_word();
+                      var pressed = stt_button_pressed();
+                      if(!pressed){
+                        stt();
+                        stt_word();
+                      };
                     }
                   "
                 >
@@ -396,6 +399,10 @@ export default {
       //if error is thrown stop recognition and reset
       recognition.addEventListener('error', function(event) {
         console.log('Speech recognition error detected: ' + event.error);
+        playAndPauseButton.disabled = false;
+        playAndPauseButton.innerText = 'Start';
+        playAndPauseButton.className = 'button is-primary is-borderless';
+        headerAudio.innerText = '🔈';
         recognition.stop();
         playAndPauseButton.disabled = false;
       });
@@ -411,6 +418,7 @@ export default {
       };
 
       recognition.start();
+      console.log("disabled: " + playAndPauseButton.disabled);
     },
     stt_word() {
       var notes = document.getElementById("note");
@@ -422,6 +430,11 @@ export default {
         this.$socket.emit("send_message", notes.innerHTML);
         notes.innerHTML = "";
       }
+    },
+    stt_button_pressed() {
+      var playAndPauseButton = document.getElementById("playAndPause");
+      console.log(playAndPauseButton.disabled);
+      return playAndPauseButton.disabled;
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
@@ -551,8 +564,10 @@ export default {
       this.Whiteboard.decreaseLineSize();
     },*/
     start_speech() {
-      this.stt();
-      this.stt_word();
+      if(!this.stt_button_pressed()) {
+        this.stt();
+        this.stt_word();
+      }
     },
     get_powerups(points) {
       var power_list = ['Extend Time ⏳','Reveal Hint to Guessers 👁️','Double Points ✌️','Reveal Hint 👁️','Remove Hints ❌','Extra 💯 Points'];
