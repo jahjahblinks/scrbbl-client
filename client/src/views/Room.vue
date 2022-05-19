@@ -205,8 +205,11 @@ script: [
                 class = "button is-primary is-borderless"
                 @click="
                     () => {
-                      stt();
-                      stt_word();
+                      var pressed = stt_button_pressed();
+                      if(!pressed){
+                        stt();
+                        stt_word();
+                      };
                     }
                   "
                 >
