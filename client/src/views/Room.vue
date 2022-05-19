@@ -400,6 +400,10 @@ export default {
       //if error is thrown stop recognition and reset
       recognition.addEventListener('error', function(event) {
         console.log('Speech recognition error detected: ' + event.error);
+        playAndPauseButton.disabled = false;
+        playAndPauseButton.innerText = 'Start';
+        playAndPauseButton.className = 'button is-primary is-borderless';
+        headerAudio.innerText = '🔈';
         recognition.stop();
         playAndPauseButton.disabled = false;
       });
@@ -561,8 +565,8 @@ export default {
       this.Whiteboard.decreaseLineSize();
     },*/
     start_speech() {
-      this.pressed = this.stt_button_pressed();
-      if(!this.pressed) {
+      //this.pressed = this.stt_button_pressed();
+      if(!this.stt_button_pressed()) {
         this.stt();
         this.stt_word();
       }
