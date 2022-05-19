@@ -276,6 +276,7 @@ export default {
       artistUps: [],
       size: 5,
       names: "",
+      pressed: false,
     };
   },
   components: { Whiteboard },
@@ -560,7 +561,8 @@ export default {
       this.Whiteboard.decreaseLineSize();
     },*/
     start_speech() {
-      if(true) {
+      this.pressed = this.stt_button_pressed();
+      if(!this.pressed) {
         this.stt();
         this.stt_word();
       }
