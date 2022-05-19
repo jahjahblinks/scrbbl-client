@@ -26,7 +26,7 @@
         class="overlay"
         height="600"
         width="800"
-        style="position: absolute; left: 0; top: 0; z-index: 0;"
+        style="position: absolute; left: -50; top: 0; z-index: 0;"
         @mousemove="emitLine"
         @touchmove="getTouchPosition"
         @mouseleave="leaveCanvas"
@@ -118,6 +118,7 @@ export default {
     },
     onResults(results) {
       if (results.multiHandLandmarks) {
+        console.log("hand in frame");
         for (const landmarks of results.multiHandLandmarks) {
           let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
           let canvas = document.getElementsByClassName("overlay")[0];
@@ -153,6 +154,7 @@ export default {
         }
       }
       else{
+        console.log("hand not in frame");
         this.prevPos.x = null;
         this.prevPos.y = null;
         let canvas = document.getElementsByClassName("overlay")[0];
