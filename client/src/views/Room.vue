@@ -273,7 +273,6 @@ export default {
       artistUps: [],
       size: 5,
       names: "",
-      speechActive: false,
     };
   },
   components: { Whiteboard },
@@ -424,6 +423,11 @@ export default {
         this.$socket.emit("send_message", notes.innerHTML);
         notes.innerHTML = "";
       }
+    },
+    stt_button_pressed() {
+      var playAndPauseButton = document.getElementById("playAndPause");
+      console.log(playAndPauseButton.disabled);
+      return playAndPauseButton.disabled;
     },
     stt_lamer() {
       var playAndPauseButton = document.getElementById("playAndPause");
