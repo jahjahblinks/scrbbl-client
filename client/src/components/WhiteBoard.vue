@@ -26,7 +26,10 @@
         class="overlay"
         height="600"
         width="800"
-        style="position: absolute; left: 0; top: 0; z-index: -100;"
+        style="position: absolute; left: 0; top: 0; z-index: 0;"
+        @mousemove="emitLine"
+        @touchmove="getTouchPosition"
+        @mouseleave="leaveCanvas"
         :draggable="false"
       ></canvas>
       <footer class="card whiteboard-footer" v-if="iDraw">
