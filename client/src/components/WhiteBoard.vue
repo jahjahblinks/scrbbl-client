@@ -72,6 +72,7 @@ export default {
         "#c0392b",
         "#3498db",
         "#2ecc71",
+        "ffffff",
       ],
       activeColor: "#000",
       prevPos: { x: null, y: null },
