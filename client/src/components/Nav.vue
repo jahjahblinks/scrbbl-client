@@ -27,6 +27,7 @@
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
         <router-link to="/rooms" class="navbar-item">Rooms</router-link>
+        <router-link to="/tutorial" class="navbar-item">Tutorial</router-link>
       </div>
 
       <div class="navbar-end">
