@@ -18,7 +18,7 @@
         <div class="hero-body">
           <div class="content">
             <h4 class="title is-3 ">How to Play!</h4>
-            <p>The maxiumum time limit per round is 180 seconds.</p>
+            <p>The maximum time limit per round is 180 seconds.</p>
             <p>At least 2 players are needed to start a game.</p>
             <h5 class="title is-5">GLHF</h5>
           </div>
