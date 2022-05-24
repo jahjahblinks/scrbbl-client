@@ -61,7 +61,9 @@ export default {
       })
     },
     openPractice() {
-      // this.$emit("openPracticeCreator")
+      // creates a practice room
+      // call function in App.vue
+      this.$emit("openPracticeCreator")
       this.$router.push({
       path: 'practice'
       })
