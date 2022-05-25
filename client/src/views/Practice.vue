@@ -457,7 +457,8 @@ export default {
   },
   sockets: {
     receive_users(users) {
-      this.users = users;
+      // hardcode users to 1
+      this.users = 1;
     },
     receive_users_error(msg) {
       this.$swal({ title: msg, type: "error" });
@@ -467,7 +468,7 @@ export default {
       this.$router.push("/rooms");
     },
     receive_room(room) {
-      if (room) {
+      if (true) {
         this.room = room;
         this.setPainter(room.painter);
         this.getUsers();
