@@ -200,7 +200,7 @@ script: [
         </div>
 
 
-        <div class="card ">
+        <div class="card card--painter">
           <header class="card-header card-audio">
             <p id="headerAudio" class="card-header-title">🔈</p>
             <div class="control control-video">
