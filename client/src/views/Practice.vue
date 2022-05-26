@@ -251,7 +251,7 @@ script: [
 </template>
 
 <script>
-import Whiteboard from "../components/WhiteBoard";
+import Whiteboard from "../components/WhiteBoard_tutorial";
 export default {
   name: "About",
   data() {
