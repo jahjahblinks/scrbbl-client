@@ -508,7 +508,7 @@ export default {
       this.words = [];
     },
     round_stopped() {
-      this.roundStarted = false;
+      this.roundStarted = true;
     },
     game_ended() {
       this.$swal({ 
