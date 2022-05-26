@@ -26,7 +26,7 @@
         class="overlay"
         height="600"
         width="800"
-        style="position: absolute; left: -50; top: 0; z-index: 0;"
+        style="position: absolute; left: 0; top: 0; z-index: 0;"
         @mousemove="emitLine"
         @touchmove="getTouchPosition"
         @mouseleave="leaveCanvas"
