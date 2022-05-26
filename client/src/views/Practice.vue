@@ -81,16 +81,12 @@ script: [
           </div>
         </div> -->
       <!-- 
+        Choose next word window
         <div
           class="card card--painter"
           v-if="iDraw && !roundStarted && words.length > 0"
         > 
-      -->
-      <div
-          class="card card--painter"
-          v-if="true"
-        > 
-        
+    
           <header class="card-header">
             <div class="card-header-title">
               <p>Choose next word...</p> 
@@ -114,7 +110,7 @@ script: [
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
         <div class="card card--painter" v-if="iDraw && roundStarted">
           <header class="card-header">
@@ -204,7 +200,7 @@ script: [
         </div>
 
 
-        <div class="card card--painter">
+        <div class="card ">
           <header class="card-header card-audio">
             <p id="headerAudio" class="card-header-title">🔈</p>
             <div class="control control-video">
