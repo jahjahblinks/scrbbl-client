@@ -119,9 +119,7 @@ export default {
     },
     onResults(results) {
       if (results.multiHandLandmarks) {
-        console.log("hand in frame");
         for (const landmarks of results.multiHandLandmarks) {
-          console.log("lewp");
           let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
           let canvas = document.getElementsByClassName("overlay")[0];
           let ctx = canvas.getContext("2d");
@@ -129,7 +127,7 @@ export default {
           ctx.beginPath();
           ctx.strokeStyle = "#000";
           ctx.globalAlpha = 0.5;
-          ctx.arc(scaledPos.x, scaledPos.y, 25, 0, 2 * Math.PI);
+          ctx.arc(scaledPos.x - 50, scaledPos.y, 25, 0, 2 * Math.PI);
           ctx.stroke();
           
           if(landmarks[8].x > 0.75 || landmarks[8].x < 0.25 || landmarks[8].y > 0.75 || landmarks[8].y < 0.25){
@@ -137,7 +135,8 @@ export default {
             this.prevPos.y = null;
             break;
           }
-          if(Math.sqrt((landmarks[8].x - landmarks[4].x)**2 + (landmarks[8].y - landmarks[4].y)**2) > 0.05){
+          if(Math.sqrt((landmarks[8].x - landmarks[4].x)**2 + (landmarks[8].y - landmarks[4].y)**2) > 0.1){
+            console.log("fingers separated");
             this.prevPos.x = null;
             this.prevPos.y = null;
             break;
@@ -157,7 +156,6 @@ export default {
         }
       }
       else{
-        console.log("hand not in frame");
         this.prevPos.x = null;
         this.prevPos.y = null;
         let canvas = document.getElementsByClassName("overlay")[0];
