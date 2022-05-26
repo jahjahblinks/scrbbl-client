@@ -111,7 +111,7 @@ script: [
             </ul>
           </div>
         </div> -->
-        
+
         <!--
         <div class="card card--painter" v-if="iDraw && roundStarted">
           <header class="card-header">
@@ -267,7 +267,8 @@ export default {
       messages: [],
       painter: null,
       words: [],
-      iDraw: false,
+     // iDraw: false,
+      iDraw: true,
       password: null,
       roundStarted: false,
       time: 0,
