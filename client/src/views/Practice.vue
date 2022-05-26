@@ -468,15 +468,10 @@ export default {
       this.$router.push("/rooms");
     },
     receive_room(room) {
-      if (true) {
         this.room = room;
         this.setPainter(room.painter);
         this.getUsers();
         this.joinRoom();
-      } else {
-        this.$swal({ title: "This room doesn't exist.", type: "error" });
-        this.$router.push("/rooms");
-      }
     },
     receive_message(msgObj) {
       if (msgObj && msgObj.msg && msgObj.msg.length) {
