@@ -80,11 +80,17 @@ script: [
             </ul>
           </div>
         </div> -->
-
+      <!-- 
         <div
           class="card card--painter"
           v-if="iDraw && !roundStarted && words.length > 0"
-        >
+        > 
+      -->
+      <div
+          class="card card--painter"
+          v-if="true"
+        > 
+        
           <header class="card-header">
             <div class="card-header-title">
               <p>Choose next word...</p> 
