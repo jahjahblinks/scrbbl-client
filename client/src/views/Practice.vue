@@ -83,7 +83,7 @@ script: [
         </div> -->
         <div
           class="card card--painter"
-          v-if="iDraw && !roundStarted && words.length > 0"
+          v-if="true"
         > 
     
           <header class="card-header">
