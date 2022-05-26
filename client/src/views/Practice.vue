@@ -263,7 +263,7 @@ export default {
       voice_message: "",
       messages: [],
       painter: null,
-      words: [],
+      words: [sfdjkhj, sdfkj, iwneiu],
      // iDraw: false,
       iDraw: true,
       password: null,
