@@ -263,7 +263,7 @@ export default {
       voice_message: "",
       messages: [],
       painter: null,
-      words: [sfdjkhj, sdfkj, iwneiu],
+      words: [poop, butt, penis],
      // iDraw: false,
       iDraw: true,
       password: null,
