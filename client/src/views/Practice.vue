@@ -29,6 +29,7 @@ script: [
 
       <div class="column is-3">
         <div class="card">
+          <!--
           <header class="card-header">
             <p class="card-header-title"> Leaderboard 🏆 <span v-if="room && wordHint"> &nbsp; Round {{numRounds}} of {{maxRounds}}</span></p>
           </header>
@@ -47,10 +48,10 @@ script: [
                 <span class="has-text-weight-bold">{{ user.points }}</span>
               </li>
             </ul>
-          </div>
+          </div> -->
           <footer class="card-footer">
             <router-link
-              to="/rooms"
+              to="/"
               class="card-footer-item has-text-danger is-hoverable"
               >Leave Room</router-link
             >
