@@ -226,7 +226,7 @@ script: [
       <!--place to put notes w/speechrec-->
       
       <div class="column is-full">
-        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note">Notes go here!</p>
+        <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note"></p>
       </div>
 
       <div class="column is-full">
