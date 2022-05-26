@@ -111,7 +111,8 @@ script: [
             </ul>
           </div>
         </div> -->
-
+        
+        <!--
         <div class="card card--painter" v-if="iDraw && roundStarted">
           <header class="card-header">
             <div class="card-header-title">
@@ -122,6 +123,7 @@ script: [
             <p class="content">{{ password }}</p>
           </div>
         </div>
+        -->
 
         <!-- <div class="card card--painter">
           <header class="card-header card-video">
