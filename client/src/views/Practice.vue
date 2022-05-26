@@ -81,8 +81,6 @@ script: [
             </ul>
           </div>
         </div> -->
-      <!-- 
-        Choose next word window
         <div
           class="card card--painter"
           v-if="iDraw && !roundStarted && words.length > 0"
@@ -111,7 +109,7 @@ script: [
               </li>
             </ul>
           </div>
-        </div> -->
+        </div>
 
         <!--
         <div class="card card--painter" v-if="iDraw && roundStarted">
