@@ -10,6 +10,7 @@ script: [
 <template>
   <div class="section-xs container">
     <div class="columns is-multiline">
+    <!-- start: timer -->
       <div class="column is-full">
         <h1 class="title is-2 has-text-centered has-text-primary" id="Title" v-if="room">
           {{ room.name.toUpperCase() }}
@@ -24,7 +25,9 @@ script: [
           <span class="hint-word">{{ wordHint.toUpperCase() }}</span>
         </h2>
       </div>
-
+      <!-- end: timer -->
+      
+      <!-- start: leaderboard -->
       <div class="column is-3">
         <div class="card">
           <header class="card-header">
@@ -54,7 +57,9 @@ script: [
             >
           </footer>
         </div>
+        <!-- end: leaderboard -->
 
+        <!-- start: powerups -->
         <!-- <div class="card card--painter">
           <header class="card-header">
             <p class="card-header-title">⚡</p>
@@ -78,7 +83,9 @@ script: [
             </ul>
           </div>
         </div> -->
+        <!-- end: powerups -->
 
+        <!-- start: word chooser -->
         <div
           class="card card--painter"
           v-if="iDraw && !roundStarted && words.length > 0"
@@ -107,7 +114,9 @@ script: [
             </ul>
           </div>
         </div>
+        <!-- end: word chooser -->
 
+        <!-- start: word chosen -->
         <div class="card card--painter" v-if="iDraw && roundStarted">
           <header class="card-header">
             <div class="card-header-title">
@@ -118,7 +127,9 @@ script: [
             <p class="content">{{ password }}</p>
           </div>
         </div>
-
+        <!-- end: word chose -->
+        
+        <!-- start: show video -->
         <!-- <div class="card card--painter">
           <header class="card-header card-video">
             <p id="headerVideo" class="card-header-title">📷</p>
@@ -135,10 +146,12 @@ script: [
             <video id="videoInput" width=320 height=240 hidden></video>
           </div>
         </div> -->
+        <!-- end: show video -->
       </div>
 
       <whiteboard id="whiteboardID" :iDraw="iDraw" :started="roundStarted"/>
 
+      <!-- start: chat -->
       <div class="column is-3" id="chat">
         <div class="card chat">
           <header class="card-header">
@@ -194,8 +207,9 @@ script: [
             </form>
           </footer>
         </div>
+        <!-- end: chat -->
 
-
+        <!-- start: audio -->
         <div class="card card--painter">
           <header class="card-header card-audio">
             <p id="headerAudio" class="card-header-title">🔈</p>
@@ -218,9 +232,8 @@ script: [
             </div>
           </header>
         </div>
+        <!-- end: audio -->
       </div>
-      
-      <!--place to put notes w/speechrec-->
       
       <div class="column is-full">
         <p class="subtitle is-4 has-text-centered has-text-weight-bold" id="note"></p>
