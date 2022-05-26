@@ -358,7 +358,7 @@ export default {
     sendMessage(e) {
       e.preventDefault();
       if (this.message.length != 0) {
-        this.$socket.emit("send_message", this.message);
+        this.$socket.emit("send_message_tutorial", this.message);
         this.message = "";
       }
     },
