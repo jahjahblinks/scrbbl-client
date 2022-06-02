@@ -118,7 +118,7 @@ export default {
       camera.start();
     },
     onResults(results) {
-      if (this.iDraw && results.multiHandLandmarks) {
+      if (this.iDraw && this.draw && results.multiHandLandmarks) {
         for (const landmarks of results.multiHandLandmarks) {
           let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
           let canvas = document.getElementsByClassName("overlay")[0];
