@@ -118,51 +118,49 @@ export default {
       camera.start();
     },
     onResults(results) {
-      if(this.iDraw && this.draw){
-        if (results.multiHandLandmarks) {
-          for (const landmarks of results.multiHandLandmarks) {
-            let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
-            let canvas = document.getElementsByClassName("overlay")[0];
-            let ctx = canvas.getContext("2d");        // apparently this line is throwing errors?
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.beginPath();
-            ctx.strokeStyle = "#000";
-            ctx.globalAlpha = 0.5;
-            ctx.arc(scaledPos.x - 50, scaledPos.y, 25, 0, 2 * Math.PI);
-            ctx.stroke();
-            
-            if(landmarks[8].x > 0.75 || landmarks[8].x < 0.25 || landmarks[8].y > 0.75 || landmarks[8].y < 0.25){
-              this.prevPos.x = null;
-              this.prevPos.y = null;
-              break;
-            }
-            if(Math.sqrt((landmarks[8].x - landmarks[4].x)**2 + (landmarks[8].y - landmarks[4].y)**2) > 0.1){
-              console.log("fingers separated");
-              this.prevPos.x = null;
-              this.prevPos.y = null;
-              break;
-            }
-
-            
-            if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
-              let coords = { prevPos: this.prevPos, currPos: scaledPos };
-              let paintObj = { color: this.activeColor, coords };
-              this.$socket.emit("paint", paintObj);
-              this.drawLine(paintObj);
-            }
-            // New previous pos
-            this.prevPos.x = scaledPos.x;
-            this.prevPos.y = scaledPos.y;
-            console.log(scaledPos.x + " " + scaledPos.y);
-          }
-        }
-        else{
-          this.prevPos.x = null;
-          this.prevPos.y = null;
+      if (results.multiHandLandmarks) {
+        for (const landmarks of results.multiHandLandmarks) {
+          let scaledPos = { x: 800 - parseInt(1600*(landmarks[8].x - 0.25), 10), y: parseInt(1200*(landmarks[8].y-0.25), 10)};
           let canvas = document.getElementsByClassName("overlay")[0];
-          let ctx = canvas.getContext("2d");
+          let ctx = canvas.getContext("2d");        // apparently this line is throwing errors?
           ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.beginPath();
+          ctx.strokeStyle = "#000";
+          ctx.globalAlpha = 0.5;
+          ctx.arc(scaledPos.x - 50, scaledPos.y, 25, 0, 2 * Math.PI);
+          ctx.stroke();
+          
+          if(landmarks[8].x > 0.75 || landmarks[8].x < 0.25 || landmarks[8].y > 0.75 || landmarks[8].y < 0.25){
+            this.prevPos.x = null;
+            this.prevPos.y = null;
+            break;
+          }
+          if(Math.sqrt((landmarks[8].x - landmarks[4].x)**2 + (landmarks[8].y - landmarks[4].y)**2) > 0.1){
+            console.log("fingers separated");
+            this.prevPos.x = null;
+            this.prevPos.y = null;
+            break;
+          }
+
+          
+          if (this.prevPos.x != null && this.prevPos.y != null && this.started) {
+            let coords = { prevPos: this.prevPos, currPos: scaledPos };
+            let paintObj = { color: this.activeColor, coords };
+            this.$socket.emit("paint", paintObj);
+            this.drawLine(paintObj);
+          }
+          // New previous pos
+          this.prevPos.x = scaledPos.x;
+          this.prevPos.y = scaledPos.y;
+          console.log(scaledPos.x + " " + scaledPos.y);
         }
+      }
+      else{
+        this.prevPos.x = null;
+        this.prevPos.y = null;
+        let canvas = document.getElementsByClassName("overlay")[0];
+        let ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
     },
     clearBoard() {
