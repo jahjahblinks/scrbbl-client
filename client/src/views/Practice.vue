@@ -122,6 +122,7 @@ script: [
           <header class="card-header">
             <div class="card-header-title">
               <p>Tilt IMU to change brush size when drawing
+                
                 Leftward Tilt: Decrease Brush Size
                 Rightward Tilt: Increase Brush Size
               </p> 
