@@ -85,7 +85,17 @@ script: [
           class="card card--painter"
           v-if="true"
         > 
-    
+
+        <header class="card-header">
+          <div class="card-header-title">
+            <p>Tilt IMU to select word \n
+              Forward: Select Word 1 \n
+              Backward Tilt: Select Word 3 \n
+              Leftward or Rightward Tilt: Select Word 2
+            </p> 
+          </div>
+        </header>
+    <!--
           <header class="card-header">
             <div class="card-header-title">
               <p>Choose next word...</p> 
@@ -110,6 +120,7 @@ script: [
             </ul>
           </div>
         </div>
+        
 
         <div class="card card--painter" v-if="iDraw && roundStarted">
           <header class="card-header">
@@ -120,7 +131,8 @@ script: [
           <div class="card-content">
             <p class="content">{{ password }}</p>
           </div>
-        </div>
+        </div> -->
+
 
         <!-- <div class="card card--painter">
           <header class="card-header card-video">
