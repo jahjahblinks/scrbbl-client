@@ -89,7 +89,7 @@ script: [
           <header class="card-header">
             <div class="card-header-title">
               <p>Tilt IMU to select word
-                Forward: Select Word 1
+                Forward Tilt: Select Word 1
                 Backward Tilt: Select Word 3
                 Leftward or Rightward Tilt: Select Word 2
               </p> 
@@ -112,6 +112,21 @@ script: [
               </li>
             </ul>
           </div> -->
+        </div>
+
+        <div
+          class="card card--painter"
+          v-if="true"
+        > 
+    
+          <header class="card-header">
+            <div class="card-header-title">
+              <p>Tilt IMU to change brush size when drawing
+                Leftward Tilt: Decrease Brush Size
+                Rightward Tilt: Increase Brush Size
+              </p> 
+            </div>
+          </header>
         </div>
 
         <div class="card card--painter" v-if="iDraw && roundStarted">
