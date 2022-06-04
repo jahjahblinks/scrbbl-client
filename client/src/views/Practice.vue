@@ -95,6 +95,7 @@ script: [
               </p> 
             </div>
           </header>
+          <!--
           <div class="card-content">
             <ul class="content">
               <li v-for="word in words" :key="word">
@@ -110,7 +111,7 @@ script: [
                 </button>
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
 
         <div class="card card--painter" v-if="iDraw && roundStarted">
