@@ -88,9 +88,9 @@ script: [
     
           <header class="card-header">
             <div class="card-header-title">
-              <p>Tilt IMU to select word
-                Forward Tilt: Select Word 1
-                Backward Tilt: Select Word 3
+              <p>Tilt IMU to select word <br>
+                Forward Tilt: Select Word 1 <br>
+                Backward Tilt: Select Word 3 <br>
                 Leftward or Rightward Tilt: Select Word 2
               </p> 
             </div>
