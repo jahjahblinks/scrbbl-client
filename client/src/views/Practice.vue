@@ -217,6 +217,18 @@ script: [
           </footer>
         </div>
 
+        <div
+        class="card card--painter"
+        v-if="true"
+        > 
+  
+          <header class="card-header">
+            <div class="card-header-title">
+              <p>To guess a word, click the start button and say your guess.
+              </p> 
+            </div>
+          </header>
+        </div>
 
         <div class="card card--painter">
           <header class="card-header card-audio">
