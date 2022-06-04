@@ -88,13 +88,14 @@ script: [
 
         <header class="card-header">
           <div class="card-header-title">
-            <p>Tilt IMU to select word
-              Forward: Select Word 1
-              Backward Tilt: Select Word 3
+            <p>Tilt IMU to select word \n
+              Forward: Select Word 1 \n
+              Backward Tilt: Select Word 3 \n
               Leftward or Rightward Tilt: Select Word 2
             </p> 
           </div>
         </header>
+    <!--
           <header class="card-header">
             <div class="card-header-title">
               <p>Choose next word...</p> 
@@ -130,7 +131,7 @@ script: [
           <div class="card-content">
             <p class="content">{{ password }}</p>
           </div>
-        </div>
+        </div> -->
 
 
         <!-- <div class="card card--painter">
@@ -148,7 +149,7 @@ script: [
           <div class="card-content content-video">
             <video id="videoInput" width=320 height=240 hidden></video>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <whiteboard id="whiteboardID" :iDraw="iDraw" :started="roundStarted"/>
