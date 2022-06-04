@@ -121,15 +121,15 @@ script: [
     
           <header class="card-header">
             <div class="card-header-title">
-              <p>Tilt IMU to change brush size when drawing
-                
-                Leftward Tilt: Decrease Brush Size
+              <p>Tilt IMU to change brush size when drawing <br>
+                Leftward Tilt: Decrease Brush Size <br>
                 Rightward Tilt: Increase Brush Size
               </p> 
             </div>
           </header>
         </div>
 
+        <!--
         <div class="card card--painter" v-if="iDraw && roundStarted">
           <header class="card-header">
             <div class="card-header-title">
@@ -139,7 +139,7 @@ script: [
           <div class="card-content">
             <p class="content">{{ password }}</p>
           </div>
-        </div>
+        </div> -->
 
         <!-- <div class="card card--painter">
           <header class="card-header card-video">
