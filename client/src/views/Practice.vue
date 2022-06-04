@@ -88,9 +88,11 @@ script: [
     
           <header class="card-header">
             <div class="card-header-title">
-              <p>Choose next word...</p> 
-              <span v-if="wordTime < 10" class="has-text-danger">{{ wordTime }}</span>
-              <span v-else>{{ wordTime }}</span>
+              <p>Tilt IMU to select word
+                Forward: Select Word 1
+                Backward Tilt: Select Word 3
+                Leftward or Rightward Tilt: Select Word 2
+              </p> 
             </div>
           </header>
           <div class="card-content">
