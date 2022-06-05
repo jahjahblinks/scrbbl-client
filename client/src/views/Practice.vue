@@ -168,7 +168,8 @@ script: [
   
           <header class="card-header">
             <div class="card-header-title">
-              <p>To start drawing, pinch index finger and thumb together and move your hand around. Unpinch your fingers to stop drawing.
+              <p>To start drawing, pinch index finger and thumb together <br>
+                 and move your hand around. Unpinch your fingers to stop drawing.
               </p> 
             </div>
           </header>
