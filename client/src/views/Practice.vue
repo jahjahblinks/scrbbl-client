@@ -161,19 +161,6 @@ script: [
 
       <whiteboard id="whiteboardID" :iDraw="iDraw" :started="roundStarted"/>
 
-      <div
-        class="card card--painter"
-        v-if="true"
-        > 
-  
-          <header class="card-header">
-            <div class="card-header-title">
-              <p>To start drawing, pinch index finger and thumb together and move your hand around. Unpinch your fingers to stop drawing.
-              </p> 
-            </div>
-          </header>
-        </div>
-
       <div class="column is-3" id="chat">
         <div class="card chat">
           <header class="card-header">
